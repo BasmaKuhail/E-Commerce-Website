@@ -1,0 +1,57 @@
+
+.topHead{
+    background-color: var(--black);
+    font-family: var(--font-main);
+    font-size: var( --small-size);
+    color:var(--white);
+
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.topHead .items{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex: 1;
+    text-align: center;
+}
+
+.topHead .items .text{
+    font-weight: var(--light-weight) !important;
+}
+
+
+.topHead .items .link{
+    font-weight: var(--bold-weight) !important;
+    color:var(--white);
+    text-decoration: underline;
+}
+
+.topHead .languge{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    gap: 10px;
+    flex: 0;
+    margin-right: 100px;
+}
+.topHead .languge .langugeTitle{
+    display: flex;
+    gap: 10px;
+}
+.topHead .languge {
+    cursor: pointer;
+}
+.dropDowns{
+    background-color: var(--black);
+    position: absolute;
+    margin: 30px;
+    margin-left:0;
+    padding: 10px;
+}
+
+.dropDowns a{
+    color: var(--white);
+}

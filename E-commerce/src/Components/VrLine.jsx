@@ -1,0 +1,13 @@
+
+const style = {
+    width: "0.2px",        // thickness of the line    
+    backgroundColor: "var(--black)", 
+    opacity: "40%",
+    margin: "0 10px",    // spacing around the line
+}
+export default function VrLine(){
+    return(
+        <hr style={style}/>
+  );
+
+}

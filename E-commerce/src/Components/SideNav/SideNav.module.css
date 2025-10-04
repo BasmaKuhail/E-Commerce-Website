@@ -1,0 +1,24 @@
+.items .item{
+    font-family: var(--font-main);
+    font-size: var( --meduim-size);
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+.items .item .dropDownTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    gap: 20px;
+}
+.items .item .dropDowns{
+    padding-top: 10px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.items .item .dropDowns a:hover{
+    text-decoration: underline;
+}
