@@ -1,0 +1,46 @@
+.mainDiv{
+    background-color: var(--black);
+    color: var(--white);
+    font-family: var(--font-main);
+    margin: 50px;
+}
+.mainDiv .vr{
+    display: flex;
+    flex-direction: column;
+    
+}
+.mainDiv .vr .hz{
+    display: flex;
+    justify-content: space-between;
+}
+.item{
+    display: flex;
+    gap:20px;
+    align-items: center;
+}
+#titleCont{
+    margin-top:30px;
+}
+.title{
+    font-size: var(--meduim-size);
+}
+.text{
+    font-size: var(--x-large-size);
+    font-weight: var(--meduim);
+    width: 10ch;
+}
+.icon{
+    width: 40px;
+    height: 49px;
+}
+.shop{
+    color: var(--white);
+    text-decoration: underline;
+}
+.img{
+    width: 40vw;
+}
+.slider{
+    display: flex;
+    justify-content: center;
+}
