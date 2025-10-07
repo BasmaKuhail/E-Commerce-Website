@@ -21,7 +21,7 @@ function App() {
       </div>
       <Title title="Today's"/>
       <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Flash Sales</h1>
-      <Card/>
+      <Card offer="-40%" url="src/assets/Card/device1.png" title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/>
     </>)
 }
 
