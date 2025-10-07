@@ -1,19 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+.section-content{
+    margin: 0 auto;
+    max-width: 1300px;
+}
 :root{
     /* colors */
     --black: #000000;
     --white: #FAFAFA;
     --light-gray: #F5F5F5;
     --red:#DB4444;
+    --green: #00FF66;
 
     /* font-sizes */
+    --large-size: 18px;
     --meduim-size: 16px;
     --small-size: 12px;
     --x-small-size: 10px;
     --x-large-size:48px;
-
-
 
     /* font-family */
     --font-main: 'Poppins', sans-serif;
@@ -45,3 +49,23 @@ html, body {
   z-index: 1000;
   border-bottom: 1px solid #ccc; /* this replaces <hr> */
 }
+
+.cards{
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-snap-type: x mandatory; /* Optional: adds scroll snapping */
+  gap: 50px; /* space between cards */
+
+}
+
+.cards::-webkit-scrollbar {
+    display: none;
+}
+
+hr{
+  opacity: 30%;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+

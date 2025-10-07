@@ -6,6 +6,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [
     react(),
-    svgr(), // <-- add this line to enable ReactComponent imports
+    svgr(),
   ],
 });

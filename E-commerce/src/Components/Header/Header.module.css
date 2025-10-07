@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     gap:100px;
-    padding-top: 25px;
+    /* padding-top: 25px; */
 
  
 }
@@ -57,6 +57,3 @@ a:hover, a:active{
     padding: 4px;
 }
 
-.searchButton:hover{
-    fill:var(--red)
-}

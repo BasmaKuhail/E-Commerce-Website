@@ -1,0 +1,112 @@
+.card{
+    cursor: pointer;
+}
+.imgContainer{
+    background-color: var( --light-gray);
+    border-radius: 4px;
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    justify-content: center;
+}
+
+.imgContainer:hover .add2cart{
+    display: flex;
+}
+.offer{
+    padding: 10px;
+    background-color: var(--red);
+    color: var(--white);
+    border-radius: 4px;
+    font-family: var(--font-main);
+    font-size: var( --small-size);
+    width: fit-content;
+    height: fit-content;
+    margin-right: 10%;
+ }
+ 
+
+.offerIcon{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: absolute;
+}
+.icons{
+    display: flex;
+    flex-direction: column;
+    margin-left: 65%;
+}
+.icons .icon{
+    padding: 10px;
+    border-radius: 60px;
+    background-color: white;
+    width: fit-content;
+    height: auto;
+    margin-bottom: 5px;
+}
+.icons .icon:hover{
+    background-color: rgba(0, 0, 0, 0.258);
+}
+.img{
+    width: 12vw;
+    margin:40px
+
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-main);
+    padding: 0;
+}
+.text .title{
+    font-weight: var(--meduim);
+    font-size: var(--meduim-size);
+}
+
+.text .price{
+    color: var(--red);
+    font-size: var(--meduim-size);
+}
+.item{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.instedOf{
+    color: var(--black);
+    opacity: 50%;
+    text-decoration: line-through;
+}
+.stars{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    padding: 0;
+}
+.rating{
+    color: var(--black);
+    opacity: 50%;
+    font-size: var(--small-size);
+}
+
+.add2cart{
+    background-color: var(--black);
+    color: var(--white);
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+    font-family: var(--font-main);
+    font-size: var( --large-size);
+    width: 100%;
+    border-radius: 0 0 4px  4px ;
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0; /* stick to the bottom of the image */
+    left: 0;
+    right: 0;
+    height: 40px; /* adjust as needed */
+}

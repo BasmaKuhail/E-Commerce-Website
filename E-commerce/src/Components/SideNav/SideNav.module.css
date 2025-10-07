@@ -1,6 +1,4 @@
-.items{
-    margin-right: 50px;
-}
+
 .items .item{
     font-family: var(--font-main);
     font-size: var( --meduim-size);

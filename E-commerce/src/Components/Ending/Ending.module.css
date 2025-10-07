@@ -1,0 +1,36 @@
+.groups{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-main);
+    margin-bottom: 100px;
+    gap:40px;
+}
+
+.items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--black);
+}
+
+.imgContainer{
+    background-color: var(--black);
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: solid 8px rgba(255, 255, 255, 0.796);
+}
+
+.title{
+    font-weight: var(--bold);
+    font-size: var(--meduim-size);
+}
+
+.text{
+    font-size: var(--small-size);
+}

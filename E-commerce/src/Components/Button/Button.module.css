@@ -1,0 +1,23 @@
+.button{
+    background-color: var(--red);
+    color: var(--white);
+    font-family: var(--font-main);
+    border:none;
+    border-radius: 4px;
+    font-size:var(--meduim-size);
+    padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 50px 0 50px 0;
+
+}
+
+.button:hover{
+        background: linear-gradient(rgba(0, 0, 0, 0.258), rgba(0, 0, 0, 0.258)), var(--red);
+
+}
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+
+}

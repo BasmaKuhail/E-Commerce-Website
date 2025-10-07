@@ -1,0 +1,89 @@
+import styles from "./Footer.module.css";
+import send from "../../assets/Footer/send.svg"
+import qr from "../../assets/Footer/Qrcode.png"
+import play from "../../assets/Footer/googlePlay.png"
+import apple from "../../assets/Footer/appStore.png"
+
+const allItems = [
+    {head:"Exclusive",
+        title: "Subscribe",
+        items: ["Get 10% off your first order"],
+        input: "Enter your email"},
+
+    {title:"Support",
+    items: ["111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.",
+            "exclusive@gmail.com",
+            "+888015-88888-9999"
+        ]},
+    {title: "Account",
+    items: ["My Account",
+            "Login / Register",
+            "Cart",
+            "Wishlist",
+            "Shop"
+        ]},
+    {title: "QuickLink",
+    items:["Privacy Policy",
+            "Terms Of Use",
+            "FAQ",
+            "Contacts"]},
+    {title:"Download App",
+    text:"Save $3 with App New User Only",
+    logos: ["src/assets/Footer/facebook.svg", 
+        "src/assets/Footer/instegram.svg", 
+        "src/assets/Footer/twitter.svg", 
+        "src/assets/Footer/linkedin.svg"]
+    }
+    
+]
+function Group({head, title, arrayOFItems, input, text, logos}){
+    return(
+        <ul className={styles.items}>
+            <h2>{head}</h2>
+            <li className={styles.title}>{title}</li>
+            {/* links */}
+            {(arrayOFItems != null) && arrayOFItems.map((item => 
+                <>
+                    <li className={styles.item}>{item}</li>
+                    {(input != null)&& <div className={styles.inputData}>
+                        <input className={styles.input} placeholder={input}/><img src={send}/>
+                    </div>}
+
+                    {/* last group only */}
+                    {(text != null) && <> 
+                        <li className={styles.p}>{text}</li>
+                        <li className={styles.imgs}>
+                            <img src={qr}/>
+                            <div className={styles.apps}>
+                                <img src={play}/>
+                                <img src={apple}/>
+                            </div>
+                        </li>
+                        
+                        {/* follow us on */}
+                        <div className={styles.logos}>
+                            {logos.map((item => <img src={item}/>))}
+                        </div>
+                    </>}
+                </>
+            ))}
+        </ul>
+    )
+}
+export default function Footer(){
+    return(
+        <div className={styles.footer}>
+            <div className={styles.sectionContent}>
+                <div className={styles.firstCol}>
+                    
+                </div>
+                <div className={styles.group}>
+                    {allItems.map((item => <Group head={item.head} title={item.title} arrayOFItems={item.items} input={item.input} text={item.text} logos={item.logos}/>))}     
+                </div>
+            </div>
+            <div className={styles.copyRight}>
+                <p className={styles.copyText}> &copy; Copyright Rimel 2022. All right reserved</p>
+            </div>
+        </div>
+    )
+}

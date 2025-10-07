@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    padding: 0;
+    align-items: center;
+    gap: 20px;
+}
+
+.item{
+    background-color: var(--light-gray);
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.item:hover{
+    background-color: rgba(0, 0, 0, 0.258);
+}
+.iten svg{
+    color: var(--black);
+}
