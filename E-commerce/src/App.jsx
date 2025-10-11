@@ -87,8 +87,14 @@ function App() {
         <Arrivals/>
         <Ending/>
       </div>
+<<<<<<< HEAD
       
       <Footer/>
+=======
+      <Title title="Today's"/>
+      <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Flash Sales</h1>
+      <Card offer="-40%" url="src/assets/Card/device1.png" title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/>
+>>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
     </>)
 }
 
