@@ -42,31 +42,30 @@ function Group({head, title, arrayOFItems, input, text, logos}){
             <h2>{head}</h2>
             <li className={styles.title}>{title}</li>
             {/* links */}
-            {(arrayOFItems != null) && arrayOFItems.map((item => 
-                <>
-                    <li className={styles.item}>{item}</li>
-                    {(input != null)&& <div className={styles.inputData}>
-                        <input className={styles.input} placeholder={input}/><img src={send}/>
-                    </div>}
+            {arrayOFItems && arrayOFItems.map((item => 
+                <li className={styles.item}>{item}</li>))}
 
-                    {/* last group only */}
-                    {(text != null) && <> 
-                        <li className={styles.p}>{text}</li>
-                        <li className={styles.imgs}>
-                            <img src={qr}/>
-                            <div className={styles.apps}>
-                                <img src={play}/>
-                                <img src={apple}/>
-                            </div>
-                        </li>
+            {/* input */}
+            {input&& <li className={styles.inputData}>
+                <input className={styles.input} placeholder={input}/><img src={send}/>
+            </li>}
+
+            {/* last group only */}
+            {text  && <li className={styles.p}>{text}</li>}
+            {logos && <li className={styles.imgs}>
+                <img src={qr}/>
+                <div className={styles.apps}>
+                    <img src={play}/>
+                    <img src={apple}/>
+                    </div>
+            </li>}
                         
-                        {/* follow us on */}
-                        <div className={styles.logos}>
-                            {logos.map((item => <img src={item}/>))}
-                        </div>
-                    </>}
-                </>
-            ))}
+            {/* follow us on */}
+            {logos && <li>
+                <div className={styles.logos}>
+                    {logos.map((item => <img src={item}/>))}
+                </div>
+            </li>}
         </ul>
     )
 }

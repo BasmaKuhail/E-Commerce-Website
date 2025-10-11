@@ -30,7 +30,11 @@ function App() {
           <MainImg/>
         </div>
         <Title title="Today's"/>
-        <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Flash Sales</h1>
+        <div style={{display: "flex", justifyContent:"space-between"}}>
+          <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Flash Sales</h1>
+          <NextPrev/>
+        </div>
+        
         <div className="cards">
           <Card offer="-40%" url="src/assets/Card/card1.png" title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/>
           <Card offer="-40%" url="src/assets/Card/card2.png" title="AK-900 Wired Keyboard" price="960" instedOf="1160"  rating="(75)"/>

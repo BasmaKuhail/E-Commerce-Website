@@ -12,6 +12,10 @@
 .mainDiv .vr .hz{
     display: flex;
     justify-content: space-between;
+    position: relative; 
+    width: 100%;        
+    height: 420px;      
+    overflow: hidden;   
 }
 .item{
     display: flex;
@@ -43,4 +47,25 @@
 .slider{
     display: flex;
     justify-content: center;
+    gap:10px;
+    margin-bottom: 10px;
+}
+
+.dot{
+    background-color: var(--white);
+    opacity: 50%;
+    padding: 5px;
+    border-radius: 50px;
+    border:solid 3px;
+}
+.dot:hover{
+    border: solid 3px var(--white);
+    opacity: 100%;
+    background-color: var(--red);
+}
+
+/* Slides */
+.slide {
+  opacity: 0;
+  position: absolute; 
 }
