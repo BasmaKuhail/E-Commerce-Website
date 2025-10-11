@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .card{
     cursor: pointer;
 }
@@ -14,13 +13,6 @@
 
 .imgContainer:hover .add2cart{
     display: flex;
-=======
-.imgContainer{
-    background-color: var( --light-gray);
-    padding:5px;
-    border-radius: 4px;
-    width: fit-content;
->>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
 }
 .offer{
     padding: 10px;
@@ -30,38 +22,26 @@
     font-family: var(--font-main);
     font-size: var( --small-size);
     width: fit-content;
-<<<<<<< HEAD
     height: fit-content;
     margin-right: 10%;
  }
  
 
-=======
-    height: fit-content
-}
->>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
 .offerIcon{
     display: flex;
     justify-content: space-between;
     margin-left: 20px;
     margin-right: 20px;
-<<<<<<< HEAD
     position: absolute;
-=======
->>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
 }
 .icons{
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     margin-left: 65%;
-=======
->>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
 }
 .icons .icon{
     padding: 10px;
     border-radius: 60px;
-<<<<<<< HEAD
     background-color: white;
     width: fit-content;
     height: auto;
@@ -74,25 +54,12 @@
     width: 12vw;
     margin:40px
 
-=======
-    background-color: var(--white);
-    width: fit-content;
-}
-
-.img{
-    width: 15vw;
-    margin-left: 40px;
-    margin-right: 40px;
->>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
 }
 .text{
     display: flex;
     flex-direction: column;
     font-family: var(--font-main);
-<<<<<<< HEAD
     padding: 0;
-=======
->>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
 }
 .text .title{
     font-weight: var(--meduim);
@@ -103,14 +70,11 @@
     color: var(--red);
     font-size: var(--meduim-size);
 }
-<<<<<<< HEAD
 .item{
     display: flex;
     gap: 10px;
     align-items: center;
 }
-=======
->>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
 .instedOf{
     color: var(--black);
     opacity: 50%;
@@ -119,18 +83,13 @@
 .stars{
     display: flex;
     align-items: center;
-<<<<<<< HEAD
     gap:10px;
     padding: 0;
-=======
-    gap:10px
->>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
 }
 .rating{
     color: var(--black);
     opacity: 50%;
     font-size: var(--small-size);
-<<<<<<< HEAD
 }
 
 .add2cart{
@@ -150,6 +109,4 @@
     left: 0;
     right: 0;
     height: 40px; /* adjust as needed */
-=======
->>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
 }

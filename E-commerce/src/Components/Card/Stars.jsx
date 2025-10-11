@@ -1,10 +1,6 @@
 export default function Stars({ rating = 0, totalStars = 5 }) {
   return (
-<<<<<<< HEAD
     <div> 
-=======
-    <div>
->>>>>>> 2d80842b6c2a348a35354747c5f8000d25e36efa
       {[...Array(totalStars)].map((_, index) => {
         const starNumber = index + 1;
         return (
