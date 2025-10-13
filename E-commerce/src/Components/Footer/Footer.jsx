@@ -4,6 +4,13 @@ import qr from "../../assets/Footer/Qrcode.png"
 import play from "../../assets/Footer/googlePlay.png"
 import apple from "../../assets/Footer/appStore.png"
 
+import facebook from "../../assets/Footer/facebook.svg"
+import instegram from "../../assets/Footer/instegram.svg"
+import twitter from "../../assets/Footer/twitter.svg"
+import linkedin from "../../assets/Footer/linkedin.svg"
+
+
+
 const allItems = [
     {head:"Exclusive",
         title: "Subscribe",
@@ -29,10 +36,7 @@ const allItems = [
             "Contacts"]},
     {title:"Download App",
     text:"Save $3 with App New User Only",
-    logos: ["src/assets/Footer/facebook.svg", 
-        "src/assets/Footer/instegram.svg", 
-        "src/assets/Footer/twitter.svg", 
-        "src/assets/Footer/linkedin.svg"]
+    logos: [facebook, instegram,twitter, linkedin]
     }
     
 ]
