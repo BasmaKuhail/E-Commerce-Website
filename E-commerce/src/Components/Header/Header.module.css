@@ -3,11 +3,9 @@
     font-size: var( --large-size);
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap:100px;
-    /* padding-top: 25px; */
-
- 
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1300px;
 }
 .title:hover{
     text-decoration: none;
@@ -37,9 +35,9 @@ a:hover, a:active{
 /* search */
 
 .searchNav{
-    display: flex;
     align-items: center;
-    
+    position: relative;
+    display: inline-block;
 }
 
 .search{
@@ -53,7 +51,14 @@ a:hover, a:active{
 
 .searchButton{
     border: none;
-    background-color: var(--light-gray);
+    /* background-color: var(--light-gray); */
     padding: 4px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
 

@@ -39,20 +39,23 @@ const allItems = [
 function Group({head, title, arrayOFItems, input, text, logos}){
     return(
         <ul className={styles.items}>
-            <h2>{head}</h2>
-            <li className={styles.title}>{title}</li>
+            <li><h2>{head}</h2></li>
+            <li className={styles.itemLi} id={styles.title}>{title}</li>
             {/* links */}
             {arrayOFItems && arrayOFItems.map((item => 
-                <li className={styles.item}>{item}</li>))}
+                <li className={styles.itemLi} id={styles.item}>{item}</li>))}
 
             {/* input */}
-            {input&& <li className={styles.inputData}>
-                <input className={styles.input} placeholder={input}/><img src={send}/>
+            {input&& <li className={styles.itemLi} id={styles.inputData}>
+                <div className={styles.inputWrapper}>
+                    <input className={styles.input} placeholder={input} />
+                    <img src={send} alt="send" className={styles.sendIcon} />
+                </div>
             </li>}
 
             {/* last group only */}
-            {text  && <li className={styles.p}>{text}</li>}
-            {logos && <li className={styles.imgs}>
+            {text  && <li className={styles.itemLi} id={styles.p}>{text}</li>}
+            {logos && <li className={styles.itemLi} id={styles.imgs}>
                 <img src={qr}/>
                 <div className={styles.apps}>
                     <img src={play}/>
@@ -61,7 +64,7 @@ function Group({head, title, arrayOFItems, input, text, logos}){
             </li>}
                         
             {/* follow us on */}
-            {logos && <li>
+            {logos && <li className={styles.itemLi}>
                 <div className={styles.logos}>
                     {logos.map((item => <img src={item}/>))}
                 </div>

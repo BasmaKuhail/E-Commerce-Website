@@ -1,0 +1,25 @@
+.TimeContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-main);
+    gap:20px
+
+}
+ul{
+    padding: 0;
+}
+#head{
+    font-size: var( --small-size);
+}
+#num{
+    font-size: var(--xx-large-size);
+    font-weight: var(--bold);
+}
+
+.col{
+    font-size: var(--large-size);
+    font-weight: var(--bold);
+    color: var(--red);
+    opacity: 50%;
+}

@@ -12,6 +12,7 @@ import Footer from "./Components/Footer/Footer"
 import Ad from "./Components/Ad/Ad"
 import Arrivals from "./Components/Arrivals/Arrival"
 import Ending from "./Components/Ending/Ending"
+import Timer from "./Components/Timer/Timer"
 
 
 function App() {
@@ -24,14 +25,17 @@ function App() {
       </div>
       <div className="section-content">
 
-        <div style={{display:"flex", flexDirection:"row"}}>
+        <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", marginBottom:"100px"}}>
           <SideNav />
           <VrLine/>
           <MainImg/>
         </div>
         <Title title="Today's"/>
-        <div style={{display: "flex", justifyContent:"space-between"}}>
-          <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Flash Sales</h1>
+        <div style={{display: "flex", justifyContent:"space-between", marginBottom:"30px"}}>
+          <div style={{display: "flex",gap:"100px"}}>
+            <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Flash Sales</h1>
+            <Timer/>
+          </div> 
           <NextPrev/>
         </div>
         

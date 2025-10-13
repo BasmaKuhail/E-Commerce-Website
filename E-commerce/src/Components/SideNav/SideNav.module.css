@@ -1,10 +1,13 @@
-
+.items{
+    padding: 0;
+    margin-top: 50px;
+}
 .items .item{
     font-family: var(--font-main);
     font-size: var( --meduim-size);
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding-bottom: 20px;
 }
 .items .item .dropDownTitle{
     display: flex;
