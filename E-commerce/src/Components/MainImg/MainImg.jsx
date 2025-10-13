@@ -1,32 +1,35 @@
 import styles from "./MainImg.module.css"
+import iphone from "../../assets/MainBody/iphone.png"
+import MainBody1 from "../../assets/MainBody/MainBody1.png"
+import MainBody2 from "../../assets/MainBody/MainBody2.png"
 import { useState } from "react";
 
 const items =[{
-    img: "src/assets/MainBody/MainBody1.png",
-    icon: "src/assets/MainBody/iphone.png",
+    img: {MainBody1},
+    icon: {iphone},
     title: "iPhone 14 Series",
     text: "Up to 10% off Voucher"
     },
-  {img: "src/assets/MainBody/MainBody2.png",
-    icon: "src/assets/MainBody/iphone.png",
+  {img: {MainBody2},
+    icon: {iphone},
     title: "iPhone 17 Series",
     text: "Up to 15% off Voucher",
   },{
-    img: "src/assets/MainBody/MainBody1.png",
-    icon: "src/assets/MainBody/iphone.png",
+    img: {MainBody1},
+    icon: {iphone},
     title: "iPhone 14 Series",
     text: "Up to 10% off Voucher"
     },
-  {img: "src/assets/MainBody/MainBody2.png",
-    icon: "src/assets/MainBody/iphone.png",
+  {img: {MainBody2},
+    icon: {iphone},
     title: "iPhone 17 Series",
     text: "Up to 15% off Voucher",
   },{
-    img: "src/assets/MainBody/MainBody1.png",
-    icon: "src/assets/MainBody/iphone.png",
+    img: {MainBody1},
+    icon: {iphone},
     title: "iPhone 14 Series",
     text: "Up to 10% off Voucher"
-    },
+    }
 ]
 
 function Img({item}){
