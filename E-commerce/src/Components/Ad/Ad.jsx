@@ -23,7 +23,7 @@ function Timer(){
         </div>
     )
 }
-export default function NextPrev({head, ad}){
+export default function Ad({head, ad}){
     return(
         <div className={styles.container}>
             <div className={styles.text}>

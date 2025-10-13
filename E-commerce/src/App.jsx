@@ -76,10 +76,10 @@ function App() {
           <Button color="red" text="View All"/>
         </div>
         <div style={{display:"flex", justifyContent:"space-between"}}>
-          <Card offer="-40%" url="src/assets/Card/card1.png" title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/>
-          <Card offer="-40%" url="src/assets/Card/card2.png" title="AK-900 Wired Keyboard" price="960" instedOf="1160"  rating="(75)"/>
-          <Card offer="-40%" url="src/assets/Card/card3.png" title="S-Series Comfort Chair " price="375" instedOf="400"  rating="(88)"/>
-          <Card offer="-40%" url="src/assets/Card/card4.png" title="RGB liquid CPU Cooler" price="300" instedOf="400"  rating="(88)"/>
+          <Card offer="-40%" url={card1} title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/>
+          <Card offer="-40%" url={card2} title="AK-900 Wired Keyboard" price="960" instedOf="1160"  rating="(75)"/>
+          <Card offer="-40%" url={card3} title="S-Series Comfort Chair " price="375" instedOf="400"  rating="(88)"/>
+          <Card offer="-40%" url={card4} title="RGB liquid CPU Cooler" price="300" instedOf="400"  rating="(88)"/>
         </div>
         <Ad head="Categories" ad="Enhance Your Music Experience"/>
         <Title title="Our Products"/>
@@ -88,14 +88,14 @@ function App() {
           <NextPrev/>
         </div>
         <div style={{display:"flex", justifyContent:"space-between", flexWrap:"wrap"}}>
-          <Card offer="-40%" url="src/assets/Card/card1.png" title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/>
-          <Card offer="-40%" url="src/assets/Card/card2.png" title="AK-900 Wired Keyboard" price="960" instedOf="1160"  rating="(75)"/>
-          <Card offer="-40%" url="src/assets/Card/card3.png" title="S-Series Comfort Chair " price="375" instedOf="400"  rating="(88)"/>
-          <Card offer="-40%" url="src/assets/Card/card4.png" title="RGB liquid CPU Cooler" price="300" instedOf="400"  rating="(88)"/>
-          <Card offer="-40%" url="src/assets/Card/card5.png" title="Gucci duffle bag" price="100" instedOf="130"  rating="(88)"/>
-          <Card offer="-40%" url="src/assets/Card/card6.png" title="The north coat" price="120" instedOf="160"  rating="(88)"/>
-          <Card offer="-40%" url="src/assets/Card/card7.png" title="IPS LCD Gaming Monitor" price="370" instedOf="400"  rating="(88)"/>
-          <Card offer="-40%" url="src/assets/Card/card1.png" title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/>
+          <Card offer="-40%" url={card1} title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/>
+          <Card offer="-40%" url={card2} title="AK-900 Wired Keyboard" price="960" instedOf="1160"  rating="(75)"/>
+          <Card offer="-40%" url={card3} title="S-Series Comfort Chair " price="375" instedOf="400"  rating="(88)"/>
+          <Card offer="-40%" url={card4} title="RGB liquid CPU Cooler" price="300" instedOf="400"  rating="(88)"/>
+          <Card offer="-40%" url={card5} title="Gucci duffle bag" price="100" instedOf="130"  rating="(88)"/>
+          <Card offer="-40%" url={card6} title="The north coat" price="120" instedOf="160"  rating="(88)"/>
+          <Card offer="-40%" url={card7} title="IPS LCD Gaming Monitor" price="370" instedOf="400"  rating="(88)"/>
+          <Card offer="-40%" url={card1} title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/>
         </div>
         <Button color="red" text="View All Products"/>
 

@@ -5,28 +5,28 @@ import MainBody2 from "../../assets/MainBody/MainBody2.png"
 import { useState } from "react";
 
 const items =[{
-    img: {MainBody1},
-    icon: {iphone},
+    img: MainBody1,
+    icon: iphone,
     title: "iPhone 14 Series",
     text: "Up to 10% off Voucher"
     },
-  {img: {MainBody2},
-    icon: {iphone},
+  {img: MainBody2,
+    icon: iphone,
     title: "iPhone 17 Series",
     text: "Up to 15% off Voucher",
   },{
-    img: {MainBody1},
-    icon: {iphone},
+    img: MainBody1,
+    icon: iphone,
     title: "iPhone 14 Series",
     text: "Up to 10% off Voucher"
     },
-  {img: {MainBody2},
-    icon: {iphone},
+  {img: MainBody2,
+    icon: iphone,
     title: "iPhone 17 Series",
     text: "Up to 15% off Voucher",
   },{
-    img: {MainBody1},
-    icon: {iphone},
+    img: MainBody1,
+    icon: iphone,
     title: "iPhone 14 Series",
     text: "Up to 10% off Voucher"
     }

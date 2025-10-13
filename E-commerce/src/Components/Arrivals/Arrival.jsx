@@ -1,18 +1,24 @@
 import styles from "./Arrival.module.css";
+
+import PlayStation from "../../assets/Arrivals/PlayStation.png"
+import woman from "../../assets/Arrivals/woman.png"
+import Speakers from "../../assets/Arrivals/Speakers.png"
+import Perfume from "../../assets/Arrivals/Perfume.png"
+
 const data =[
-    { url:"src/assets/Arrivals/PlayStation.png",
+    { url:PlayStation,
         title:"PlayStation 5",
         text:"Black and White version of the PS5 coming out on sale."
     },
-    { url:"src/assets/Arrivals/woman.png",
+    { url:woman,
         title:"Women's Collections",
         text:"Featured woman collections that give you another vibe"
     },
-    { url:"src/assets/Arrivals/Speakers.png",
+    { url:Speakers,
         title:"Speakers",
         text:"amazon wireless speakers"
     },
-    { url:"src/assets/Arrivals/Perfume.png",
+    { url:Perfume,
         title:"Perfume",
         text:"GUCCI INTENSE OUD EDP"
     },
