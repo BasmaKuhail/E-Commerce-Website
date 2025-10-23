@@ -1,0 +1,77 @@
+.contactContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: var(--font-main);
+    margin: 0 auto;
+    max-width: 1300px;
+
+}
+.contactData, .contactForm{
+    border: solid 1px, var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+.contactForm{
+    width: 33%;
+}
+
+.img{
+    background-color: var(--red);
+    padding: 10px;
+    border-radius: 20px;
+    width: 25px;
+    height: 25px
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    width: 30ch;
+}
+
+.hr{
+    margin: 0;
+}
+
+.contactForm{
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+    gap:40px;
+    padding: 3%;
+}
+
+.personalDataContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.personalData{
+    padding: 10px;
+    background-color: var(--light-gray);
+    border: none;
+    border: 4px;
+    width: 30%;
+    height: 90%;
+}
+
+.msg{
+    padding: 10px;
+    background-color: var(--light-gray);
+    border: none;
+    border: 4px;
+    width: 97.7%;
+    font-family: var(--font-main);
+    height: 400%;
+}
+.btnContainer{
+    display: flex;
+    justify-content: right;
+    margin-top: 20%;
+}
