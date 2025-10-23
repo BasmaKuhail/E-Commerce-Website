@@ -1,6 +1,7 @@
 import styles from "./SignLog.module.css"
 import cartImg from "../../assets/SignUp/beatsnoop.png"
 import TextField from '@mui/material/TextField';
+import { Link } from "react-router-dom";
 
 
 
@@ -38,7 +39,7 @@ export default function SignUp({title,sign, btntitle}){
                 </div>
                 
             </div>
-            {sign && <p className={styles.end}>Already have account? <a href="#">Log in</a></p>}
+            {sign && <p className={styles.end}>Already have account? <Link to="/login">Log in</Link></p>}
 
         </div>
         

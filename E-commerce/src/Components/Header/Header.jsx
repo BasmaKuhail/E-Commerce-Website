@@ -1,4 +1,6 @@
 import styles from "./Header.module.css"
+import { Link } from "react-router-dom";
+
 
 function Search(){
     return(
@@ -12,10 +14,10 @@ function Search(){
     )
 }
 const items =[
-    {title: "Home", href:"#"},
+    {title: "Home", href:"/"},
     {title: "Contact", href:"#"},
     {title: "About", href:"#"},
-    {title: "Sgin Up", href:"#"},
+    {title: "Sgin Up", href:"/signup"},
 ]
 export default function Header({withIcons}){
     return(
@@ -25,7 +27,7 @@ export default function Header({withIcons}){
             <ul className={styles.items}>
                 {items.map(item => (
                     <li className={styles.item}>
-                        <a href={item.href}>{item.title}</a>
+                        <Link to={item.href} className={styles.link}>{item.title}</Link>
                     </li>))}
             </ul>
             
