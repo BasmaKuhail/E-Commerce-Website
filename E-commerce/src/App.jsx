@@ -22,6 +22,7 @@ import card4 from "./assets/Card/card4.png"
 import card5 from "./assets/Card/card5.png"
 import card6 from "./assets/Card/card6.png"
 import card7 from "./assets/Card/card7.png"
+import SignUp from "./Components/SignUp/SignUp"
 
 
 function App() {
@@ -30,9 +31,11 @@ function App() {
   return (<>
       <div className="sticky">
         <TopHead/>
-        <Header/>
+        <Header withIcons={false}/>
       </div>
-      <div className="section-content">
+      <SignUp title={"Create an account"} sign={true} btntitle={"Create Account"}/>
+      <SignUp title={"Login to Exclusive"} sign={false} btntitle={"Login"}/>
+      {/* <div className="section-content">
 
         <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", marginBottom:"100px"}}>
           <SideNav />
@@ -103,7 +106,7 @@ function App() {
         <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>New Arrival</h1>
         <Arrivals/>
         <Ending/>
-      </div>
+      </div> */}
       
       <Footer/>
     </>)

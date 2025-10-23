@@ -3,8 +3,9 @@
     width: 900px;
     color: var(--white);
     font-family: var(--font-main);
-    padding: 50px 0 0 50px;
+    padding: 50px 0 35px 50px;
     margin-top: 50px;
+    /* position: relative; */
 }
 .mainDiv .vr{
     display: flex;
