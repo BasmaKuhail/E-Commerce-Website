@@ -15,8 +15,13 @@ function Search(){
 }
 const items =[
     {title: "Home", href:"/"},
+<<<<<<< HEAD
     {title: "Contact", href:"/contact"},
     {title: "About", href:"/about"},
+=======
+    {title: "Contact", href:"#"},
+    {title: "About", href:"#"},
+>>>>>>> f89b765004576da9027cac9a122ec64cfeacd1a3
     {title: "Sgin Up", href:"/signup"},
 ]
 export default function Header({withIcons}){
