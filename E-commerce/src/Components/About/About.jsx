@@ -61,7 +61,8 @@ function Story(){
         <div className={styles.storyContainer}>
             <div className={styles.textContainer}>
                 <h1>Our Story</h1>
-                <p className={styles.mainText}> jkhsbo lhaebij klhjtnai lheaj nadbjn mbSNB jkbkrbae  jkhsbo lhaebij klhjtnai lheaj nadbjn mbSNB jkbkrbae jkhsbo lhaebij klhjtnai lheaj nadbjn mbSNB jkbkrbae jkhsbo lhaebij klhjtnai lheaj nadbjn mbSNB jkbkrbae jkhsbo lhaebij klhjtnai lheaj nadbjn mbSNB jkbkrbae jkhsbo lhaebij klhjtnai lheaj nadbjn mbSNB jkbkrbae jkhsbo lhaebij klhjtnai lheaj nadbjn mbSNB jkbkrbae</p>
+                <p className={styles.mainText}> Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons customers across the region. </p>
+                <p className={styles.mainText}> Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging  from consumer. </p>
             </div>
             <div>
                 <Img/>
