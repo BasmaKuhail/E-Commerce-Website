@@ -1,0 +1,166 @@
+.pageContainer{
+    display: flex;
+    flex-direction: column;
+}
+#productContainer{
+    margin-top: 60px;
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.otherImgs{
+    display: flex;
+    flex-direction: column;
+    width: 10%;
+    padding: 10px;
+    gap: 10px;
+}
+
+.mainImg{
+    background-color: var(--light-gray);
+}
+.smallImg{
+    background-color: var(--light-gray);
+}
+.detailscontainer{
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-main);
+}
+.item{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-top: 15px;
+
+}
+
+.reviews{
+    color: gray;
+}
+
+.inStock{
+    color: #00FF66;
+}
+
+.outStock{
+    color: #E07575;
+}
+
+#price{
+    font-size: 24px;
+}
+
+.hr{
+    margin:  15px 0 15px 0 ;
+}
+.color{
+    width: 20px;
+    height: 20px;
+}
+
+.size{
+    padding: 5px;
+    width:30px;
+    background-color: white;
+    border: solid 1px gray;
+    border-radius: 4px;
+    /* margin-top: 10px; */
+}
+.size:hover{
+    background-color: var(--red);
+    border: solid 1px var(--red);
+    color: white;
+}
+
+.quantity{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.quantityItem{
+    border: solid 1px gray;
+    /* border-radius: 4px; */
+    background-color: white;
+    padding: 5px 10px 5px 10px  ;
+    /* margin-top: 10px; */
+}
+
+#number{
+    padding-right: 30px;
+    padding-left: 30px;
+    width: 10px;
+}
+#plusMins{
+    cursor: pointer
+}
+#plusMins:hover{
+    background-color: var(--red);
+    border: solid 1px var(--red);
+    color: white;
+}
+
+.btn{
+    background-color: var(--red);
+    border: none;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    border-radius: 4px;
+}
+
+.btn:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.258), rgba(0, 0, 0, 0.258)), var(--red);
+}
+.love{
+    background-color: white;
+    border: solid 1px gray;
+    padding: 7px 8px 6px 8px;
+    border-radius: 4px;
+}
+.love:hover{
+    background: var(--red);
+}
+
+#specialItem{
+    gap:20px
+}
+
+.delivery{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.dliv{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    border: solid 1px var(--black);
+    align-items: center;
+    padding: 20px;
+}
+
+.desc{
+    font-size: var(--small-size);
+    cursor: pointer;
+    margin: 0;
+}
+.desc:hover{
+    text-decoration: underline;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+}
+
+.title{
+    font-size: var(--meduim-size);
+    cursor: pointer;
+    margin: 0;
+    font-weight: var(--meduim);
+}
