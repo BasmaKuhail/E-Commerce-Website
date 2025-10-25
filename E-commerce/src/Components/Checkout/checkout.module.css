@@ -1,0 +1,122 @@
+.pageContainer{
+    font-family: var(--font-main);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#checkoutContainer, .formData{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;  
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.lbl{
+    color: gray;
+    font-size: var(--small-size);
+}
+.save{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+.inpt{
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.check{
+    accent-color: var(--red);
+    width: 15px;
+    height: 15px;
+}
+.cartData{
+    width: 40%;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.cell{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.img{
+    width: 50px;
+}
+
+.payingData{
+    display: flex;
+    flex-direction: column;
+}
+
+.item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.hr{
+    margin: 0;
+}
+.payitems{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#icons{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.radio{
+    accent-color: var(--black);
+    width: 15px;
+    height: 15px;
+}
+
+.copon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.coponInput{
+    padding: 12px;
+    border-radius: 4px;
+    border: solid 1px;
+    width: 50%;
+}
+
+.button{
+    background-color: var(--red);
+    color: var(--white);
+    font-family: var(--font-main);
+    border:none;
+    border-radius: 4px;
+    font-size:var(--meduim-size);
+    padding: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+.button:hover{
+    background: linear-gradient(rgba(0, 0, 0, 0.258), rgba(0, 0, 0, 0.258)), var(--red);
+
+}

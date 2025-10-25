@@ -1,10 +1,10 @@
 import Path from "../About/Path";
 import styles from "./Cart.module.css"
-import { Link } from "react-router-dom";
 
 import card1 from "../../assets/Card/card1.png"
 import card7 from "../../assets/Card/card7.png"
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const cartItems =[ ["Product", "Price", "Quantity" ,"Subtotal"],
 {img: card1,
@@ -82,7 +82,7 @@ function TbRow(){
                         <p>total:</p> ${total + shipping}
                     </li>
                 </ul>
-                <Button text="Procees to checkout"/>
+                <Link to="/checkout"><Button text="Procees to checkout"/></Link>
             </div>
         </div>
     </div>)
