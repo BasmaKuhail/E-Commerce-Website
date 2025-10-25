@@ -8,6 +8,7 @@ import SignUp from "./Components/SignUp/SignUp"
 import HomePage from "./Components/HomePage";
 import About from "./Components/About/About";
 import Contact from "./Components/Contact/Contact";
+import Cart from "./Components/Cart/Cart";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   return (<>
       <div className="sticky">
         <TopHead/>
-        <Header withIcons={false}/>
+        <Header withIcons={true}/>
       </div>
       <Routes>
         <Route path="/" element={<HomePage/>} />
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<SignUp title={"Login to Exclusive"} sign={false} btntitle={"Login"}/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
+        <Route path="/cart" element={<Cart shipping={0} />} />
       </Routes>
       
       <Footer/>

@@ -1,0 +1,92 @@
+#cartContainer, .tableContent{
+    font-family: var(--font-main);
+    margin-top: 60px;
+}
+.tableContent, .tbContent{
+    font-family: var(--font-main);
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+.header, .row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 1px var(--light-gray);
+    padding: 10px;
+}
+.cell{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.img{
+    width: 50px;
+}
+
+.btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.button{
+    background-color: white;
+    font-family: var(--font-main);
+    border:solid 1px;
+    border-radius: 4px;
+    font-size:var(--meduim-size);
+    padding: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 50px 0 50px 0;
+
+}
+
+.button:hover{
+    background: var(--red);
+    border: var(--red);
+    color: white;
+
+}
+.copon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 50%;
+}
+
+.inpt{
+    padding: 17px;
+    width: 40%;
+    border-radius: 4px;
+    border: solid 1px;
+}
+.payingContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    align-items:flex-start
+}
+.total{
+    border: solid 1px;
+    font-family: var(--font-main);
+    width:30%;
+    padding:20px;
+    margin: 50px 0 50px 0;
+}
+
+.hr{
+    margin: 0;
+}
+
+.item{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
