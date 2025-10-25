@@ -18,6 +18,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    width: 370ch;
 }
 
 #category{
@@ -68,4 +69,8 @@
     border-radius: 4px;
     padding:  20px 50px 0 50px;
     height: 400px;
+}
+
+.img{
+    width: 100%;
 }

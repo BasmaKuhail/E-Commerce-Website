@@ -1,6 +1,6 @@
 import styles from "./About.module.css"
 import Path from "./Path"
-import story from "../../assets/About/story.png"
+import story from "../../assets/About/story.jpg"
 
 import delivery from "../../assets/EndingIcons/delivery.svg"
 import secure from "../../assets/EndingIcons/secure.svg"
