@@ -1,6 +1,6 @@
 .mainNav{
     font-family: var(--font-main);
-    font-size: var( --large-size);
+    /* font-size: var( --large-size); */
     display: flex;
     align-items: center;
     justify-content: space-between;

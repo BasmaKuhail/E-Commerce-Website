@@ -5,7 +5,14 @@ import Icons from "./Icons"
 import Text from "./Text"
 import AddToCart from "./AddToCart"
 
+// import useFetchData from "../ProductList"
+
+
+
 export default function Card({offer, url, title, price, instedOf, rating}){
+
+
+  
     return(
         <div className={styles.card}>
             <div className={styles.imgContainer}>
