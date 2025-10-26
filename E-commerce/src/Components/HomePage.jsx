@@ -50,7 +50,15 @@ export default function HomePage(){
         
         <div className="cards">
           {products.map((product => <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
-              <Card offer="-40%" url={product.image} title={product.title} price={product.price} instedOf="400"  rating={product.rating.count}/>
+              <Card 
+                id= {product.id} 
+                offer="-40%" 
+                url={product.image} 
+                title={product.title} 
+                price={product.price} 
+                instedOf="400"  
+                rating={product.rating.count}
+              />
             </Link>))}
         </div>
         <Button color="red" text="View All Products"/>

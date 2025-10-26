@@ -1,55 +1,41 @@
 import Path from "../About/Path";
 import styles from "./Cart.module.css"
-
-import card1 from "../../assets/Card/card1.png"
-import card7 from "../../assets/Card/card7.png"
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import { useCart } from "./CartContext";
 
-const cartItems =[ ["Product", "Price", "Quantity" ,"Subtotal"],
-{img: card1,
-        title: "LCD Monitor",
-        price: 650,
-        quantity: 1,
-    },
-    {img: card7,
-        title: "H1 Gamepad",
-        price: 550,
-        quantity: 2,
-    },
-]
-
-const total = cartItems
-    .slice(1) // skip the header row
-    .reduce((sum, item) => sum + item.price * item.quantity, 0);
+const headerrow =["Product", "Price", "Quantity" ,"Subtotal"];
 
 function Btn ({title}){
     return(<button className={styles.button}>
         {title}
     </button>)
 }
-export default function Cart({shipping}){
 
 function TbRow(){
+    const { cartItems } = useCart();
     return(<div className={styles.tbContent}>
-        {cartItems.map((item,index) => <>
-        {(index == 0) && <ul className={styles.row}>
-            {item.map((cell => <li className={styles.cell}>{cell}</li>))}
-        </ul>}
-        {(index > 0) && <ul className={styles.row}>
+        <ul className={styles.row}>
+            {headerrow.map((cell => <li className={styles.cell}>{cell}</li>))}
+        </ul>
+
+        {cartItems.map((item) => <ul key={item.id} className={styles.row}>
             <li className={styles.cell}>
-                <img className={styles.img} src={item.img}/>
+                <img className={styles.img} src={item.image}/>
                 {item.title}
             </li>
             <li className={styles.cell}>${item.price}</li>
             <li className={styles.cell}>{item.quantity}</li>
             <li className={styles.cell}>${(item.quantity * item.price)}</li>
-        </ul>}</>)}
+        </ul>)}
         
     </div>)
 }
 
-    
+export default function Cart({shipping = 0}){
+    const { cartTotal } = useCart();
+    const finalTotal = cartTotal + shipping;
+
     return(<div className="section-content" id={styles.cartContainer}>
         <Path/>
         <div className={styles.tableContent}>
@@ -70,7 +56,7 @@ function TbRow(){
                         <h2>Cart Total</h2>
                     </li>
                     <li className={styles.item}>
-                        <p>Subtotal:</p> ${total}
+                        <p>Subtotal:</p> ${cartTotal}
                     </li>
                     <hr className={styles.hr}/>
                     <li className={styles.item}>
@@ -79,7 +65,7 @@ function TbRow(){
                     </li>
                     <hr className={styles.hr}/>
                     <li className={styles.item}>
-                        <p>total:</p> ${total + shipping}
+                        <p>total:</p> ${finalTotal}
                     </li>
                 </ul>
                 <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/checkout"><Button text="Procees to checkout"/></Link>

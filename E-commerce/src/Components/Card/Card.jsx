@@ -9,7 +9,7 @@ import AddToCart from "./AddToCart"
 
 
 
-export default function Card({offer, url, title, price, instedOf, rating}){
+export default function Card({id, offer, url, title, price, instedOf, rating}){
 
 
   
@@ -21,7 +21,7 @@ export default function Card({offer, url, title, price, instedOf, rating}){
                     <Icons/>
                 </div>
                 <CardImg url={url}/>
-                <AddToCart/>
+                <AddToCart productId={id}/>
             </div>
 
             <div className={styles.titleContainer}>

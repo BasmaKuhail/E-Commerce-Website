@@ -21,6 +21,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    width: 25ch;
 }
 .img{
     width: 50px;
