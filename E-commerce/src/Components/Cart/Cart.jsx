@@ -82,7 +82,7 @@ function TbRow(){
                         <p>total:</p> ${total + shipping}
                     </li>
                 </ul>
-                <Link to="/checkout"><Button text="Procees to checkout"/></Link>
+                <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/checkout"><Button text="Procees to checkout"/></Link>
             </div>
         </div>
     </div>)
