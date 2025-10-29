@@ -1,12 +1,12 @@
 import styles from "./Card.module.css"
 import { useCart } from "../Cart/CartContext"
 
-export default function AddToCart({productId}){
+export default function AddToCart({product}){
     const { addItem } = useCart();
 
     function addToCart() {
-        console.log("add to cart for product:", productId);
-        addItem(productId); 
+        console.log("add to cart for product:", product);
+        addItem(product); 
     }
     return(
         <div className={styles.add2cart} onClick={addToCart}>

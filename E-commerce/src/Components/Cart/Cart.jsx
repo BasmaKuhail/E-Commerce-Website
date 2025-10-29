@@ -42,7 +42,7 @@ export default function Cart({shipping = 0}){
             <TbRow/>
         </div>
         <div className={styles.btns}>
-            <Btn title="Return To Shop"/>
+            <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/"><Btn title="Return To Shop"/></Link>
             <Btn title="Update Cart"/>
         </div>
         <div className={styles.payingContainer}>

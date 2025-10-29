@@ -10,16 +10,12 @@ import product5 from "../../assets/ProductDetails/product5.png"
 import delivery1 from "../../assets/ProductDetails/delivery1.svg"
 import delivery2 from "../../assets/ProductDetails/delivery2.svg"
 
-import card1 from "../../assets/Card/card1.png"
-import card2 from "../../assets/Card/card2.png"
-import card3 from "../../assets/Card/card3.png"
-import card4 from "../../assets/Card/card4.png"
-
 import BasicRating from "../Card/Stars";
 import { useState } from "react";
 import Card from "../Card/Card";
 import Title from "../Title";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import useFetchData from "../ProductList";
 
 const product ={
     images: [product2, product3, product4, product5],
@@ -33,7 +29,7 @@ const product ={
     colors: ["blue", "pinck"],
     sizes: ["XS", "S", "M", "L", "XL"]
 }
-
+const sizes= ["XS", "S", "M", "L", "XL"]
 
 const delivery = [
     {icon: delivery1,
@@ -44,36 +40,50 @@ const delivery = [
         description: "Free 30 Days Delivery Returns. Details"
     }
 ]
-export default function(){
-    const [quantity ,setQuantity] = useState(product.quantity);
+export default function ProductDetails(){
+    const location = useLocation();
+    const { product } = location.state || {}; //get product from state
+    {console.log(product)}
+    let { data: products} = useFetchData();
+    
+    //related items
+    products = products.filter((prdct) => prdct.category == product.category)
+    const [quantity, setQuantity] = useState(product.quantity || 1);
 
-function incraseHandler(){
-    return setQuantity(quantity + 1);
-}
-function decraseHandler(){
-    if(quantity > 0){
-        return setQuantity(quantity - 1);
-    }else{
-        return setQuantity(0)
+    function incraseHandler(){
+        product.quantity = product.quantity +1;
+        return setQuantity(quantity  + 1);
     }
-}
-function QuantityHandler(){
-    return(<div className={styles.quantityContainer}>
-        <ul className={styles.quantity} >
-            <li onClick={incraseHandler} className={styles.quantityItem} id= {styles.plusMins}> + </li>
-            <li className={styles.quantityItem} id= {styles.number}> {quantity} </li>
-            <li onClick={decraseHandler} className={styles.quantityItem} id= {styles.plusMins}> - </li>
-        </ul>
-    </div>)
-}
+    function decraseHandler(){
+        if(quantity > 0){
+            product.quantity = product.quantity -1;
+            return setQuantity(quantity -1 );
+        }else{
+            product.quantity = 0;
+            return setQuantity(0)
+        }
+    }
+    function QuantityHandler(){
+        return(<div className={styles.quantityContainer}>
+            {console.log(quantity)}
+            <ul className={styles.quantity} >
+                <li onClick={incraseHandler} className={styles.quantityItem} id= {styles.plusMins}> + </li>
+                <li className={styles.quantityItem} id= {styles.number}> {quantity} </li>
+                <li onClick={decraseHandler} className={styles.quantityItem} id= {styles.plusMins}> - </li>
+            </ul>
+        </div>)
+    }
+    if (!product) {
+        return <p>Product not found.</p>; // fallback in case user opens /pdp directly
+    }
     return(<div id={styles.pageContainer} className="section-content" >
 
     <div id={styles.productContainer}>
         <div className={styles.otherImgs}>
-            {product.images.map((img => <img className={styles.smallImg} src={img}/>))}
+            {[1,2,3].map((img => <img className={styles.smallImg} src={product.image}/>))} 
         </div>
         <div className={styles.mainImgContainer}>
-            <img className={styles.mainImg} src={product1}/>
+            <img className={styles.mainImg} src={product.image}/>
         </div>
         <div className={styles.detailscontainer}>
             <ul className={styles.items}>
@@ -81,8 +91,8 @@ function QuantityHandler(){
                     <h2>{product.title}</h2>
                 </li>
                 <li className={styles.item}>
-                    <BasicRating/>
-                    <p className={styles.reviews}>({product.reviews} Reviews)</p> 
+                    <BasicRating rate={product.rating.rate}/>
+                    <p className={styles.reviews}>({product.rating.count} Reviews)</p> 
                     <p className={styles.reviews}>| </p>
                     {(product.inStock)&& <p className={styles.inStock}>in Stock</p>}
                     {(!product.inStock)&& <p className={styles.outStock}>out Stock</p>}
@@ -92,11 +102,11 @@ function QuantityHandler(){
                 <hr className={styles.hr}/>
 
                 <li className={styles.item}>Colors: 
-                    {product.colors.map((color => <input type="radio" styles= {{accentColor: `${color}`}} className={styles.color}/>))}
+                    {/* {product.colors.map((color => <input type="radio" styles= {{accentColor: `${color}`}} className={styles.color}/>))} */}
                 </li>
 
                 <li className={styles.item}>Sizes: 
-                    {product.sizes.map((size => <button className={styles.size}>{size}</button>))}
+                    {sizes.map((size => <button className={styles.size}>{size}</button>))} 
                 </li>
                 <li className={styles.item} id={styles.specialItem}>
                     <QuantityHandler/>
@@ -122,10 +132,9 @@ function QuantityHandler(){
     </div>
         <Title title="Related Item"/>
         <div style={{display:"flex", justifyContent:"space-between", marginTop:"40px"}}>
-            <Link to="/pdp"><Card offer="-40%" url={card1} title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/></Link>
-            <Link to="/pdp"><Card offer="-40%" url={card2} title="AK-900 Wired Keyboard" price="960" instedOf="1160"  rating="(75)"/></Link>
-            <Link to="/pdp"><Card offer="-40%" url={card3} title="S-Series Comfort Chair " price="375" instedOf="400"  rating="(88)"/></Link>
-            <Link to="/pdp"><Card offer="-40%" url={card4} title="RGB liquid CPU Cooler" price="300" instedOf="400"  rating="(88)"/></Link>
+           {products.map((product => <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
+                <Card product = {product}/>
+            </Link>))}
         </div>
     
     </div> )

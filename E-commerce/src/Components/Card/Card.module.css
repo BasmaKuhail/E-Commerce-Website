@@ -64,6 +64,7 @@
 .text .title{
     font-weight: var(--meduim);
     font-size: var(--meduim-size);
+    width: 28ch;
 }
 
 .text .price{

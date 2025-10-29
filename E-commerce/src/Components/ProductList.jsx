@@ -12,6 +12,6 @@ export default function useFetchData() {
       .catch(err => setError(err))
       .finally(() => setLoading(false));
   }, []);
-
+  console.log(data)
   return { data, loading, error };
 }

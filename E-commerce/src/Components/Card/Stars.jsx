@@ -2,8 +2,8 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 
-export default function BasicRating() {
-  const [value, setValue] = React.useState(2);
+export default function BasicRating({rate}) {
+  const [value, setValue] = React.useState(rate);
 
   return (
     <Box sx={{ '& > legend': { mt: 2 } }}>

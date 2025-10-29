@@ -9,23 +9,24 @@ import AddToCart from "./AddToCart"
 
 
 
-export default function Card({id, offer, url, title, price, instedOf, rating}){
+export default function Card({product}){
 
 
   
     return(
         <div className={styles.card}>
+            {/* {console.log(product)} */}
             <div className={styles.imgContainer}>
                 <div className={styles.offerIcon}>
-                    <OfferBox offer={offer}/>
+                    <OfferBox offer="40%"/>
                     <Icons/>
                 </div>
-                <CardImg url={url}/>
-                <AddToCart productId={id}/>
+                <CardImg url={product.image}/>
+                <AddToCart product={product}/>
             </div>
 
             <div className={styles.titleContainer}>
-                <Text title={title} price={price} instedOf ={instedOf} rating={rating} />
+                <Text title={product.title} price={product.price} instedOf ="400" count={product.rating.count} rate={product.rating.rate}/>
             </div>
         </div>
     )

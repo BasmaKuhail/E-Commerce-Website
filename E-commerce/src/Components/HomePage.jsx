@@ -49,16 +49,12 @@ export default function HomePage(){
         </div>
         
         <div className="cards">
-          {products.map((product => <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
-              <Card 
-                id= {product.id} 
-                offer="-40%" 
-                url={product.image} 
-                title={product.title} 
-                price={product.price} 
-                instedOf="400"  
-                rating={product.rating.count}
-              />
+          {products.map((product => <Link 
+            style={{ color: 'inherit', textDecoration: 'inherit'}} 
+            to="/pdp"
+            state={{ product }}>
+
+              <Card product = {product}/>
             </Link>))}
         </div>
         <Button color="red" text="View All Products"/>
@@ -80,10 +76,9 @@ export default function HomePage(){
           <Button color="red" text="View All"/>
         </div>
         <div style={{display:"flex", justifyContent:"space-between"}}>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card1} title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/></Link>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card2} title="AK-900 Wired Keyboard" price="960" instedOf="1160"  rating="(75)"/></Link>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card3} title="S-Series Comfort Chair " price="375" instedOf="400"  rating="(88)"/></Link>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card4} title="RGB liquid CPU Cooler" price="300" instedOf="400"  rating="(88)"/></Link>
+          {products.map((product => <Link state={{ product }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
+              <Card product = {product}/>
+            </Link>))}
         </div>
         <Ad head="Categories" ad="Enhance Your Music Experience"/>
         <Title title="Our Products"/>
@@ -92,14 +87,9 @@ export default function HomePage(){
           <NextPrev/>
         </div>
         <div style={{display:"flex", justifyContent:"space-between", flexWrap:"wrap"}}>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card1} title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/></Link>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card2} title="AK-900 Wired Keyboard" price="960" instedOf="1160"  rating="(75)"/></Link>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card3} title="S-Series Comfort Chair " price="375" instedOf="400"  rating="(88)"/></Link>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card4} title="RGB liquid CPU Cooler" price="300" instedOf="400"  rating="(88)"/></Link>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card5} title="Gucci duffle bag" price="100" instedOf="130"  rating="(88)"/></Link>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card6} title="The north coat" price="120" instedOf="160"  rating="(88)"/></Link>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp"><Card offer="-40%" url={card7} title="IPS LCD Gaming Monitor" price="370" instedOf="400"  rating="(88)"/></Link>
-          <Link style={{ color: 'inherit', textDecoration: 'inherit'}}to="/pdp"><Card offer="-40%" url={card1} title="HAVIT HV-G92 Gamepad" price="120" instedOf="160"  rating="(88)"/></Link>
+          {products.map((product => <Link state={{ product }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
+              <Card product = {product}/>
+            </Link>))}
         </div>
         <Button color="red" text="View All Products"/>
 

@@ -1,7 +1,7 @@
 import styles from "./Card.module.css"
 import Stars from "./Stars"
 
-export default function Text({title, price, instedOf, rating}){
+export default function Text({title, price, instedOf, rate, count}){
     return <ul className={styles.text}>
         <li className={styles.title}>
             {title}
@@ -11,8 +11,8 @@ export default function Text({title, price, instedOf, rating}){
             <p className={styles.instedOf}>${instedOf}</p>
         </li>
         <ul className={styles.stars}>
-            <li><Stars/></li>
-            <li className={styles.rating}>{rating}</li>
+            <li><Stars rate={rate}/></li>
+            <li className={styles.rating}>{count}</li>
         </ul>
     </ul>
 }
