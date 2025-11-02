@@ -17,18 +17,6 @@ import Title from "../Title";
 import { Link, useLocation } from "react-router-dom";
 import useFetchData from "../ProductList";
 
-const product ={
-    images: [product2, product3, product4, product5],
-    title:"Havic HV G-92 Gamepad",
-    rating: 4,
-    reviews: 150,
-    inStock: true,
-    price: 192.00,
-    quantity: 2,
-    about: "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
-    colors: ["blue", "pinck"],
-    sizes: ["XS", "S", "M", "L", "XL"]
-}
 const sizes= ["XS", "S", "M", "L", "XL"]
 
 const delivery = [
@@ -131,8 +119,8 @@ export default function ProductDetails(){
         </div>
     </div>
         <Title title="Related Item"/>
-        <div style={{display:"flex", justifyContent:"space-between", marginTop:"40px"}}>
-           {products.map((product => <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
+        <div className="cards">
+           {products.map((product => <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp" state={{ product }}>
                 <Card product = {product}/>
             </Link>))}
         </div>

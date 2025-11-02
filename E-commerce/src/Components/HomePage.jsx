@@ -24,14 +24,15 @@ import Ending from "./Ending/Ending";
 import Category from "./Category/Category";
 
 import useFetchData from "./ProductList";
-export default function HomePage(){
+import { useRef } from "react";
+export default function HomePage({initialSeconds}){
 
-      const { data: products, loading, error } = useFetchData();
+  const { data: products, loading, error } = useFetchData();
   
       // if (loading) return <p>Loading...</p>;
       // if (error) return <p>Error loading products</p>;
-
-      console.log(products)
+    
+  console.log(products)
   return(<div className="section-content">
 
         <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", marginBottom:"100px"}}>
@@ -43,7 +44,7 @@ export default function HomePage(){
         <div style={{display: "flex", justifyContent:"space-between", marginBottom:"30px"}}>
           <div style={{display: "flex",gap:"100px"}}>
             <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Flash Sales</h1>
-            <Timer/>
+            <Timer initialSeconds={initialSeconds}/>
           </div> 
           <NextPrev/>
         </div>
@@ -69,17 +70,19 @@ export default function HomePage(){
           <Category/>
         
         <hr/>
-
+        
         <Title title="This Month"/>
         <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
           <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Best Selling Products</h1>
           <Button color="red" text="View All"/>
         </div>
-        <div style={{display:"flex", justifyContent:"space-between"}}>
+        <div className="cards">
           {products.map((product => <Link state={{ product }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
               <Card product = {product}/>
             </Link>))}
         </div>
+
+
         <Ad head="Categories" ad="Enhance Your Music Experience"/>
         <Title title="Our Products"/>
         <div style={{display:"flex", justifyContent:"space-between"}}>
