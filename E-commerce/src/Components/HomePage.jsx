@@ -53,7 +53,7 @@ export default function HomePage({initialSeconds}){
           {products.map((product => <Link 
             style={{ color: 'inherit', textDecoration: 'inherit'}} 
             to="/pdp"
-            state={{ product }}>
+            explore>
 
               <Card product = {product}/>
             </Link>))}
