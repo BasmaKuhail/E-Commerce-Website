@@ -1,3 +1,10 @@
+/* mobile screen */
+@media (max-width:600px) {
+    .groups{
+        flex-wrap: wrap;
+    }
+}
+
 .groups{
     display: flex;
     flex-direction: row;

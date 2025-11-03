@@ -2,7 +2,7 @@
 @media (max-width:600px) {
     .group{
         flex-wrap: wrap;
-        justify-content: flex-start;
+        justify-content: center !important;
     }
 }
 

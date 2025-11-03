@@ -17,3 +17,10 @@
 .iten svg{
     color: var(--black);
 }
+
+/* mobile screen */
+@media (max-width:600px) {
+    .container{
+        visibility: hidden;
+    }
+}

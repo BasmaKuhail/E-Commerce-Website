@@ -74,7 +74,7 @@ function Story(){
 
 function People(){
     return(<div className={styles.peopleContainer}>
-        {console.log(people.length)}
+        {/* {console.log(people.length)} */}
             {people.map((item => <div className={styles.personContainer}>
                 <img className={styles.presonImg} src={item.img}/>
                 <h2>{item.name}</h2>
@@ -88,6 +88,6 @@ export default function About(){
         <Story/>
         <Category/>
         <People/>
-        <Ending/>
+        {/* <Ending/> */}
     </div>)
 }

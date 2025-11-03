@@ -1,5 +1,26 @@
-.pathContainer{
-    font-family: var(--font-main);
+/* mobile screen */
+@media (max-width:600px) {
+    .storyContainer{
+        flex-wrap: wrap;
+    }
+    .img{
+        width: 30% !important;
+    }
+    .mainText{
+        width: 40ch;
+    }
+    .Container{
+        flex-direction: column !important;
+        /* align-items: center; */
+    }
+    .peopleContainer{
+        flex-direction: column !important;
+        /* align-items: center; */
+    }
+}
+
+/* tablet screen */
+@media (min-width: 601px) and (max-width: 1024px)  {
 
 }
 
@@ -38,6 +59,7 @@
 }
 .Container{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     gap: 40px;
     margin-top: 40px;

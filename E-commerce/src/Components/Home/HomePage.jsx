@@ -37,7 +37,7 @@ export default function HomePage({initialSeconds}){
             <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Flash Sales</h1>
             <Timer initialSeconds={initialSeconds}/>
           </div> 
-          <NextPrev/>
+          <NextPrev/>          
         </div>
         
         <div className="cards">

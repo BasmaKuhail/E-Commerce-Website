@@ -74,8 +74,33 @@
 @media (max-width:600px) {
     .mainDiv .vr{
         flex-wrap: wrap;
+        align-items: center;
+        
+    }
+    .hz{
+        height: 50% !important; 
+    }
+    .mainDiv{
+        padding: 30px 0 30px 30px;
     }
 
     .mainDiv .vr .hz{
-    flex-wrap: wrap;}
+        flex-wrap: wrap;
+    }
+    .img{
+        width: auto;
+        height: 30vh;
+        display: flex;
+        justify-content: center;
+    }
+    .icon{
+        width: 30px;
+        height: 37px;
+    }
+    .text{
+        font-size: var(--xx-large-size);
+    }
+    .mainDiv{
+        height: fit-content;
+    }
 }
