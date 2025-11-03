@@ -5,13 +5,14 @@ import Header from "./Components/Header/Header"
 import Footer from "./Components/Footer/Footer"
 
 import SignUp from "./Components/SignUp/SignUp"
-import HomePage from "./Components/HomePage";
+import HomePage from "./Components/Home/HomePage";
 import About from "./Components/About/About";
 import Contact from "./Components/Contact/Contact";
 import Cart from "./Components/Cart/Cart";
 import Checkout from "./Components/Checkout/Checkout";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import { useRef } from "react";
+import SideNav from "./Components/SideNav/SideNav";
 
 
 function App() {
@@ -30,6 +31,7 @@ const timeLeft = useRef(30000);
         <Route path="/cart" element={<Cart shipping={0} />} />
         <Route path="/checkout" element={<Checkout shipping={0}/>} />
         <Route path="/pdp" element={<ProductDetails/>} />
+        <Route path="/sideNav" element={<SideNav/>} />
       </Routes>
       
       <Footer/>

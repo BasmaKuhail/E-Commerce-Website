@@ -1,0 +1,31 @@
+.firstGroup{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    margin-bottom:100px;
+}
+.secendGroup{
+    display: flex;
+    justify-content:space-between;
+    margin-bottom:30px
+}
+
+.secendGroupInner{
+    display: flex;
+    gap:100px;
+}
+/* mobile screen */
+@media (max-width:600px) {
+    .firstGroup{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .secendGroup{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .secendGroupInner{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

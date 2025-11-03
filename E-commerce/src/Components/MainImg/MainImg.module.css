@@ -69,3 +69,13 @@
   opacity: 0;
   position: absolute; 
 }
+
+/* mobile screen */
+@media (max-width:600px) {
+    .mainDiv .vr{
+        flex-wrap: wrap;
+    }
+
+    .mainDiv .vr .hz{
+    flex-wrap: wrap;}
+}

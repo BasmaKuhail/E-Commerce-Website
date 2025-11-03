@@ -1,15 +1,37 @@
+/* mobile screen */
+@media (max-width:600px) {
+    .container{
+        margin: 0 auto;
+        max-width: 100px;
+    }
+    .items{
+        display:none;
+        visibility: hidden;
+    }
+}
 
+/* tablet screen */
+@media (min-width: 601px) and (max-width: 1024px)  {
+    .topHead{
+        width: 100%;
+    }
+}
 .topHead{
     background-color: var(--black);
     font-family: var(--font-main);
     font-size: var( --small-size);
     color:var(--white);
 
+    
+}
+.container{
     align-items: center;
     justify-content: center;
     display: flex;
-}
 
+    margin: 0 auto;
+    max-width: 1300px;
+}
 .topHead .items{
     display: flex;
     gap: 10px;
@@ -38,7 +60,7 @@
     justify-content: left;
     gap: 10px;
     flex: 0;
-    margin-right: 115px;
+    /* margin-right: 115px; */
 }
 .topHead .languge .langugeTitle{
     display: flex;

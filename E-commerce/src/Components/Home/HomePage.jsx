@@ -1,30 +1,21 @@
 import { Link } from "react-router-dom";
+import styles from "./Home.module.css"
+import Button from "../Button/Button";
+import Card from "../Card/Card";
+import MainImg from "../MainImg/MainImg";
+import NextPrev from "../NextPrev/NextPrev";
+import SideNav from "../SideNav/SideNav";
+import Timer from "../Timer/Timer";
+import Title from "../Title";
+import VrLine from "../VrLine";
+import Ad from "../Ad/Ad";
 
-import Button from "./Button/Button";
-import Card from "./Card/Card";
-import MainImg from "./MainImg/MainImg";
-import NextPrev from "./NextPrev/NextPrev";
-import SideNav from "./SideNav/SideNav";
-import Timer from "./Timer/Timer";
-import Title from "./Title";
-import VrLine from "./VrLine";
-import Ad from "./Ad/Ad";
+import Arrivals from "../Arrivals/Arrival";
+import Ending from "../Ending/Ending";
+import Category from "../Category/Category";
 
+import useFetchData from "../ProductList";
 
-// card imges
-import card1 from "../assets/Card/card1.png"
-import card2 from "../assets/Card/card2.png"
-import card3 from "../assets/Card/card3.png"
-import card4 from "../assets/Card/card4.png"
-import card5 from "../assets/Card/card5.png"
-import card6 from "../assets/Card/card6.png"
-import card7 from "../assets/Card/card7.png"
-import Arrivals from "./Arrivals/Arrival";
-import Ending from "./Ending/Ending";
-import Category from "./Category/Category";
-
-import useFetchData from "./ProductList";
-import { useRef } from "react";
 export default function HomePage({initialSeconds}){
 
   const { data: products, loading, error } = useFetchData();
@@ -35,14 +26,14 @@ export default function HomePage({initialSeconds}){
   console.log(products)
   return(<div className="section-content">
 
-        <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", marginBottom:"100px"}}>
+        <div className={styles.firstGroup}>
           <SideNav />
           <VrLine/>
           <MainImg/>
         </div>
         <Title title="Today's"/>
-        <div style={{display: "flex", justifyContent:"space-between", marginBottom:"30px"}}>
-          <div style={{display: "flex",gap:"100px"}}>
+        <div className={styles.secendGroup}>
+          <div className={styles.secendGroupInner}>
             <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Flash Sales</h1>
             <Timer initialSeconds={initialSeconds}/>
           </div> 
@@ -83,7 +74,7 @@ export default function HomePage({initialSeconds}){
         </div>
 
 
-        <Ad head="Categories" ad="Enhance Your Music Experience"/>
+        {/* <Ad head="Categories" ad="Enhance Your Music Experience"/> */}
         <Title title="Our Products"/>
         <div style={{display:"flex", justifyContent:"space-between"}}>
           <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Explore Our Products</h1>

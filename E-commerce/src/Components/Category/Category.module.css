@@ -1,3 +1,18 @@
+/* mobile screen */
+@media (max-width:600px) {
+    .Container{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* tablet screen */
+@media (min-width: 601px) and (max-width: 1024px)  {
+    .Container{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
 .category{
     border: 1px solid var(--black);
     border-radius: 4px;
@@ -16,6 +31,7 @@
     justify-content: space-between;
     gap: 40px;
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 .category:hover{
     background-color: var(--red);

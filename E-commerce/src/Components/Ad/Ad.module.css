@@ -1,3 +1,25 @@
+/* mobile screen */
+@media (max-width:600px) {
+    .Container{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .timer{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .head{
+    }
+}
+
+/* tablet screen */
+@media (min-width: 601px) and (max-width: 1024px)  {
+    .Container{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
 .container{
     background-color: var(--black);
     color: var(--white);
@@ -58,7 +80,7 @@
 .img{
     position: relative; /* so z-index works */
     z-index: 1;         /* above the shadow */
-    width: 600px;
+    width: 40vw;
 }
 
 .imgcContainer{

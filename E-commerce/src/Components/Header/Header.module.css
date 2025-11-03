@@ -1,3 +1,19 @@
+/* mobile screen */
+@media (max-width:600px) {
+    .mainNav{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* tablet screen */
+@media (min-width: 601px) and (max-width: 1024px)  {
+    .Container{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
 .mainNav{
     font-family: var(--font-main);
     /* font-size: var( --large-size); */

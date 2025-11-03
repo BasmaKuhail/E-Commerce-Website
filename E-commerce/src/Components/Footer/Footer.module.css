@@ -1,3 +1,18 @@
+/* mobile screen */
+@media (max-width:600px) {
+    .group{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
+
+/* tablet screen */
+@media (min-width: 601px) and (max-width: 1024px)  {
+    .group{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
 .footer{
     background-color: var(--black);
     color: var(--white);

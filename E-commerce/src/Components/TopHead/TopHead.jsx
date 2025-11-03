@@ -11,6 +11,7 @@ export default function TopHead(){
    
     return(
         <nav className={styles.topHead}>
+            <div className={styles.container}>
             <ul className={styles.items}>
                 <li className={styles.text}>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</li>
                 <li className={styles.link}>
@@ -30,7 +31,7 @@ export default function TopHead(){
                 </div>}
             </ul>
             </div>
-            
+            </div>
         </nav>
     )
 }
