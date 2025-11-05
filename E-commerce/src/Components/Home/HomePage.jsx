@@ -16,18 +16,19 @@ import Category from "../Category/Category";
 
 import useFetchData from "../ProductList";
 
-export default function HomePage({initialSeconds}){
+export default function HomePage({initialSeconds, isSideNavOpen, setIsSideNavOpen }){
 
   const { data: products, loading, error } = useFetchData();
   
       // if (loading) return <p>Loading...</p>;
       // if (error) return <p>Error loading products</p>;
-    
+  // 1. New State for SideNav/Mobile Menu visibility
+
   console.log(products)
   return(<div className="section-content">
 
         <div className={styles.firstGroup}>
-          <SideNav />
+          <SideNav isOpen={isSideNavOpen} onClose={() => setIsSideNavOpen(false)}/>
           <VrLine/>
           <MainImg/>
         </div>

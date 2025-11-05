@@ -37,12 +37,16 @@ const items = [
   { title: "Health & Beauty", href: "#"},
 ];
 
-export default function SideNav(){
+export default function SideNav({ isOpen, onClose }){
+    
     const [openIndex, setOpenIndex] = useState(null);
     function handleClick(index){
         setOpenIndex((prev) => (prev === index ? null : index));
     }
-    return(
+    return(<>
+    {isOpen && <div className={styles.overlay} onClick={onClose}></div>}
+    
+    <aside className={`${styles.sideNav} ${isOpen ? styles.open : ""}`}>
         <ul className={styles.items}>
             {items.map((item, index) => (
                 <li className={styles.item} key={item.title}>
@@ -62,6 +66,8 @@ export default function SideNav(){
                     )}
                 </li>
                 ))}
-        </ul>
+        </ul></aside>
+        
+        </>
     );
 }

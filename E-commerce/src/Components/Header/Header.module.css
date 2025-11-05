@@ -4,6 +4,9 @@
         flex-wrap: wrap;
         justify-content: center;
     }
+    #burger{
+        display: block !important;
+    }
 }
 
 /* tablet screen */
@@ -13,7 +16,9 @@
         justify-content: flex-start;
     }
 }
-
+#burger{
+    display: none;
+}
 .mainNav{
     font-family: var(--font-main);
     /* font-size: var( --large-size); */
