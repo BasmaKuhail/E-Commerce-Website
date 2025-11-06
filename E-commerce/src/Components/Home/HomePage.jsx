@@ -43,6 +43,7 @@ export default function HomePage({initialSeconds, isSideNavOpen, setIsSideNavOpe
         
         <div className="cards">
           {products.map((product => <Link 
+            state={{ product }} 
             style={{ color: 'inherit', textDecoration: 'inherit'}} 
             to="/pdp"
             explore>
@@ -81,7 +82,7 @@ export default function HomePage({initialSeconds, isSideNavOpen, setIsSideNavOpe
           <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Explore Our Products</h1>
           <NextPrev/>
         </div>
-        <div className={styles.exploreCards} style={{display:"flex", justifyContent:"space-between", flexWrap:"wrap"}}>
+        <div className={styles.explore} style={{display:"flex", justifyContent:"space-between", flexWrap:"wrap"}}>
           {products.map((product => <Link state={{ product }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
               <Card product = {product}/>
             </Link>))}
