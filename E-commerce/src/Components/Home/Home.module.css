@@ -30,4 +30,7 @@
         flex-wrap: wrap;
         /* justify-content: center; */
     }
+    .exploreCards{
+        justify-content: center !important;
+    }
 }

@@ -1,5 +1,12 @@
+/* mobile screen */
+@media (max-width:600px) {
+    .card{
+        width: 60vw !important;
+    }
+}
 .card{
     cursor: pointer;
+    width: 20vw;
 }
 .imgContainer{
     background-color: var( --light-gray);
@@ -9,6 +16,8 @@
     overflow: hidden;
     height: 250px;
     justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .imgContainer:hover .add2cart{
@@ -23,15 +32,17 @@
     font-size: var( --small-size);
     width: fit-content;
     height: fit-content;
-    margin-right: 10%;
  }
  
 
 .offerIcon{
     display: flex;
     justify-content: space-between;
-    margin-left: 20px;
-    margin-right: 20px;
+    align-items:flex-start;
+    /* margin-left: 20px;
+    margin-right: 20px; */
+    width: 90%;
+    height: 90%;
     position: absolute;
 }
 .icons{
@@ -51,9 +62,8 @@
     background-color: rgba(0, 0, 0, 0.258);
 }
 .img{
-    width: 12vw;
+    width: 50%;
     margin:40px
-
 }
 .text{
     display: flex;

@@ -1,7 +1,7 @@
 .sideNav {
   width: 250px;
   background-color: #fff;
-  border-right: 1px solid #eee;
+  /* border-right: 1px solid #eee; */
   transition: transform 0.3s ease;
 }
 

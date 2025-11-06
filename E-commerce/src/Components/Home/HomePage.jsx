@@ -64,7 +64,7 @@ export default function HomePage({initialSeconds, isSideNavOpen, setIsSideNavOpe
         <hr/>
         
         <Title title="This Month"/>
-        <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+        <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap"}}>
           <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Best Selling Products</h1>
           <Button color="red" text="View All"/>
         </div>
@@ -81,7 +81,7 @@ export default function HomePage({initialSeconds, isSideNavOpen, setIsSideNavOpe
           <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Explore Our Products</h1>
           <NextPrev/>
         </div>
-        <div style={{display:"flex", justifyContent:"space-between", flexWrap:"wrap"}}>
+        <div className={styles.exploreCards} style={{display:"flex", justifyContent:"space-between", flexWrap:"wrap"}}>
           {products.map((product => <Link state={{ product }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
               <Card product = {product}/>
             </Link>))}
