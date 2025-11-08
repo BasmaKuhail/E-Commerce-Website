@@ -1,3 +1,35 @@
+/* mobile screen */
+@media (max-width:600px) {
+    .contactContainer{
+        flex-wrap: wrap;
+        justify-content: center !important;
+    }
+    .personalDataContainer{
+        flex-direction: column !important;
+    }
+    .personalData{
+        width: 90% !important;
+    }
+    .contactData{
+        margin-top: 20px !important;
+        margin-bottom: 0 !important;
+        width: 80% !important;
+    }
+    .contactForm{
+        width: 80% !important;
+        gap: 15px !important;
+        padding-top: 50px !important;
+        margin-top: 10px !important;
+    }
+    .msg{
+        height: 100% !important;
+        width: 90% !important;
+    }
+    .btnContainer{
+        margin-top: 0 !important;
+        justify-content: center !important;
+    }
+}
 .contactContainer{
     display: flex;
     flex-direction: row;
@@ -14,9 +46,6 @@
     padding: 20px;
     margin-top: 60px;
     margin-bottom: 80px;
-}
-.contactForm{
-    width: 33%;
 }
 
 .img{
@@ -59,6 +88,7 @@
     border: 4px;
     width: 30%;
     height: 90%;
+    font-size: var(--meduim-size);
 }
 
 .msg{
