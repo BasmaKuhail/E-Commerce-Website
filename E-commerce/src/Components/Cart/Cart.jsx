@@ -43,7 +43,8 @@ export default function Cart({shipping = 0}){
         </div>
         <div className={styles.btns}>
             <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/"><Btn title="Return To Shop"/></Link>
-            <Btn title="Update Cart"/>
+            <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/"><Btn title="Update Cart"/></Link>
+            
         </div>
         <div className={styles.payingContainer}>
             <div className={styles.copon}>

@@ -1,6 +1,27 @@
-#cartContainer, .tableContent{
-    font-family: var(--font-main);
-    margin-top: 60px;
+/* mobile screen */
+@media (max-width:600px) {
+    .btns{
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .button{
+        width: 300px;
+        margin-bottom: 20px !important;
+        margin-top: 20px !important;
+    }
+    .payingContainer{
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .copon{
+        flex-direction: column !important;
+    }
+    .inpt{
+        width: 130% !important;
+    }
+    .total{
+        width: 80% !important;
+    }
 }
 .tableContent, .tbContent{
     font-family: var(--font-main);
