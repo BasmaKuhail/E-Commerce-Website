@@ -1,3 +1,19 @@
+/* mobile screen */
+@media (max-width:600px) {
+    .img{
+        display:none !important;
+    }
+    .title{
+        width: 36ch;
+        align-items: center !important;
+    }
+    /* p{
+        width: 29ch;
+    } */
+    /* .formContent{
+        align-items: center !important;
+    } */
+}
 .img{
     width: 50%;
     margin-top: 3%;
@@ -9,6 +25,13 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;  /* horizontal centering between halves */
+    margin-bottom: 50px;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* width: 100%; */
 }
 .formContent{
     font-family: var(--font-main);
@@ -16,8 +39,8 @@
     flex-direction: column;
     gap:10px;
 
-    width: 50%;               /* take half width */
-    align-items: center;       /* center inner content horizontally */
+    width: 50%;              
+    align-items: center;       
     justify-content: center;   /* center inner content vertically */
 }
 
@@ -26,9 +49,8 @@
     flex-direction: column;
     gap:20px;
     align-items: center;
-    align-items: center;
-    width: 100%;
-
+    width: max-content;
+    /* width: */
 }
 
 .btn{
@@ -39,9 +61,10 @@
     border-radius: 4px;
     font-size:var(--meduim-size);
     padding: 15px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-top: 20px;
+    /* padding-left: 50px;
+    padding-right: 50px; */
+    /* margin-top: 20px; */
+    width: 310px
 }
 
 .btn:hover{

@@ -16,30 +16,32 @@ function Button({title}){
 export default function SignUp({title,sign, btntitle}){
     return(<div className={styles.container}>
         <Img/>
-
         <div className={styles.formContent}>
-            <div>
+            {/* <div className={styles.dataContainer}> */}
+            <div className={styles.title}>
                 <h1>{title}</h1>
                 <p>Enter your details below</p>
             </div>
             
             <div className={styles.formData}>
-                {sign && <TextField id="standard-basic" label="Name" variant="standard" />}
-                <TextField id="standard-basic" label="Email or Phone" variant="standard" />
+                {sign && <TextField style={{width:"310px"}} id="standard-basic" label="Name" variant="standard" />}
+                <TextField style={{width:"310px"}} id="standard-basic" label="Email or Phone" variant="standard" />
                 <TextField
+                style={{width:"310px"}}
                 id="standard-password-input"
                 label="Password"
                 type="password"
                 autoComplete="current-password"
                 variant="standard"
                 />
-                <div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", alignItems:"center", gap:"20px"}}>
-                    <Button title={btntitle}></Button>
+                <div style={{display:"flex", flexDirection:"column", justifyContent:"space-between", alignItems:"center", gap:"20px"}}>
+                    <Button style={{width:"100%"}} title={btntitle}/>
                     {!sign && <a style={{color:"var(--red)"}}href="#" >Forget Password?</a>}
                 </div>
                 
             </div>
             {sign && <p className={styles.end}>Already have account? <Link to="/login">Log in</Link></p>}
+            {/* </div> */}
 
         </div>
         
