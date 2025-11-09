@@ -18,15 +18,16 @@ export default function Card({product}){
             {/* {console.log(product)} */}
             <div className={styles.imgContainer}>
                 <div className={styles.offerIcon}>
-                    <OfferBox offer="40%"/>
+                    <OfferBox offer={product.discountPercentage}/>
                     <Icons/>
                 </div>
-                <CardImg url={product.image}/>
+                <CardImg url={product.images[0]}/>
                 <AddToCart product={product}/>
             </div>
 
             <div className={styles.titleContainer}>
-                <Text title={product.title} price={product.price} instedOf ="400" count={product.rating.count} rate={product.rating.rate}/>
+                <Text title={product.title} price={product.price} instedOf ="400" rate={product.rating}/>
+                {console.log(product.rating)}
             </div>
         </div>
     )

@@ -24,7 +24,7 @@ export default function HomePage({initialSeconds, isSideNavOpen, setIsSideNavOpe
       // if (error) return <p>Error loading products</p>;
   // 1. New State for SideNav/Mobile Menu visibility
 
-  console.log(products)
+  console.log(products.products)
   return(<div className="section-content">
 
         <div className={styles.firstGroup}>

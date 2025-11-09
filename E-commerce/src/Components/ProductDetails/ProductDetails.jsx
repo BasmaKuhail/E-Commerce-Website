@@ -28,7 +28,14 @@ const delivery = [
         description: "Free 30 Days Delivery Returns. Details"
     }
 ]
+
 export default function ProductDetails(){
+    const [currentIndex, setCurrentIndex] = useState(0);
+    function handleImgClick(i){
+        console.log(i)
+        setCurrentIndex(i)
+    }
+
     const location = useLocation();
     const { product } = location.state || {}; //get product from state
     {console.log(product)}
@@ -68,10 +75,18 @@ export default function ProductDetails(){
 
     <div id={styles.productContainer}>
         <div className={styles.otherImgs}>
-            {[1,2,3].map((img => <img className={styles.smallImg} src={product.image}/>))} 
+            {product.images.map((img,index) => 
+                <img 
+                    key={index}
+                    onClick={() => handleImgClick(index)} 
+                    className={styles.smallImg} 
+                    src={img}
+                    alt={`product ${index}`}
+                />
+            )} 
         </div>
         <div className={styles.mainImgContainer}>
-            <img className={styles.mainImg} src={product.image}/>
+            <img className={styles.mainImg} src={product.images[currentIndex]}/>
         </div>
         <div className={styles.detailscontainer}>
             <ul className={styles.items}>

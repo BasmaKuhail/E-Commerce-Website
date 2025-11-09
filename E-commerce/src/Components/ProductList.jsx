@@ -6,9 +6,9 @@ export default function useFetchData() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://dummyjson.com/products")
       .then(res => res.json())
-      .then(json => setData(json))
+      .then(json => setData(json.products))
       .catch(err => setError(err))
       .finally(() => setLoading(false));
   }, []);

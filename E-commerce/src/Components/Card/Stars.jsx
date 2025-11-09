@@ -7,13 +7,7 @@ export default function BasicRating({rate}) {
 
   return (
     <Box sx={{ '& > legend': { mt: 2 } }}>
-      <Rating
-        name="simple-controlled"
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      />
+      <Rating name="half-rating-read" defaultValue={rate} precision={0.5} readOnly />
     </Box>
   );
 }
