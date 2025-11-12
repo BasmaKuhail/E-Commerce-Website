@@ -13,13 +13,11 @@ import Checkout from "./Components/Checkout/Checkout";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import { useRef, useState } from "react";
 import ProductsPage from "./Components/Products/Products";
-import useFetchUsers from "./Components/UsersList";
 import Login from "./Components/SignUp/Login";
 
 
 function App() {
-const { users } = useFetchUsers();
-console.log(users)
+
 const timeLeft = useRef(30000);
 const [isSideNavOpen, setIsSideNavOpen] = useState(false);
   return (<>
