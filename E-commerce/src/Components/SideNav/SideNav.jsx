@@ -61,19 +61,19 @@ export default function SideNav({ isOpen, onClose }){
                 >
                     <li className={styles.item} key={category.title}>
                         <nav className={styles.dropDownTitle} onClick={() => handleClick(index)}>
-                            <a href ={category.href}>{category.charAt(0).toUpperCase() + category.slice(1)}</a>
+                            {category.charAt(0).toUpperCase() + category.slice(1)}
                             {category.svg && category.path && (<svg width={category.svg.width} height={category.svg.height} fill={category.svg.fill} xmlns={category.svg.xmlns}>
                                 <path d={category.path.d} fill={category.path.fill}/>
                             </svg>
                             )}
                         </nav>
-                        {category.links && openIndex === index && (
+                        {/* {category.links && openIndex === index && (
                             <div className={styles.dropDowns}> 
                                 {category.links.map((link, liIndex) => (
                                     <a href="link">{link}</a>
                                 ))}
                         </div>
-                        )}
+                        )} */}
                     </li>
                 </Link>
                 ))}

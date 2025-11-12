@@ -13,9 +13,13 @@ import Checkout from "./Components/Checkout/Checkout";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import { useRef, useState } from "react";
 import ProductsPage from "./Components/Products/Products";
+import useFetchUsers from "./Components/UsersList";
+import Login from "./Components/SignUp/Login";
 
 
 function App() {
+const { users } = useFetchUsers();
+console.log(users)
 const timeLeft = useRef(30000);
 const [isSideNavOpen, setIsSideNavOpen] = useState(false);
   return (<>
@@ -30,8 +34,8 @@ const [isSideNavOpen, setIsSideNavOpen] = useState(false);
             isSideNavOpen={isSideNavOpen}
             setIsSideNavOpen={setIsSideNavOpen} />}
         />
-        <Route path="/signup" element={<SignUp title="Create an Account" sign={true} btntitle={"Create Account"}/>} />
-        <Route path="/login" element={<SignUp title={"Login to Exclusive"} sign={false} btntitle={"Login"}/>} />
+        <Route path="/signup" element={<SignUp title="Create an Account" btntitle={"Create Account"}/>} />
+        <Route path="/login" element={<Login title={"Login to Exclusive"}  btntitle={"Login"}/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/cart" element={<Cart shipping={0} />} />

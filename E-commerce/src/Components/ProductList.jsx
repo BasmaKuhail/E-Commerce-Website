@@ -19,7 +19,7 @@ export default function useFetchData() {
   }, []);
   const category = data.map(((product) => product.category));
   const uniqueCategory = [...new Set(category)];
-  // console.log(uniqueCategory)
+  console.log(data)
 
   return { data, loading, error, uniqueCategory };
 }

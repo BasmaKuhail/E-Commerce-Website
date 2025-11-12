@@ -24,7 +24,7 @@ export default function Header({ withIcons, onMenuClick }){
     return(
         <nav className={styles.mainNav}>
             <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/">
-                <h2><a className={styles.title} href="#">Exclusive</a></h2>
+                <h2 lassName={styles.title}>Exclusive</h2>
             </Link>
             
             <ul className={styles.items}>
