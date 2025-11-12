@@ -97,8 +97,8 @@ export default function ProductDetails(){
                     <BasicRating rate={product.rating.rate}/>
                     <p className={styles.reviews}>({product.rating.count} Reviews)</p> 
                     <p className={styles.reviews}>| </p>
-                    {(product.inStock)&& <p className={styles.inStock}>in Stock</p>}
-                    {(!product.inStock)&& <p className={styles.outStock}>out Stock</p>}
+                    {(product.stock > 0)&& <p className={styles.inStock}>in Stock</p>}
+                    {(product.stock == 0)&& <p className={styles.outStock}>out Stock</p>}
                 </li>
                 <li className={styles.item} id={styles.price}>$ {product.price}</li>
                 <li className={styles.item}>{product.about}</li>

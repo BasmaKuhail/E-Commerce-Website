@@ -27,7 +27,6 @@ export default function Card({product}){
 
             <div className={styles.titleContainer}>
                 <Text title={product.title} price={product.price} instedOf ="400" rate={product.rating}/>
-                {console.log(product.rating)}
             </div>
         </div>
     )

@@ -1,3 +1,6 @@
+import { Link, useLocation } from "react-router-dom";
+
+import useFetchData from "../ProductList";
 import styles from "./SideNav.module.css"
 import { useState } from "react"
 
@@ -38,7 +41,10 @@ const items = [
 ];
 
 export default function SideNav({ isOpen, onClose }){
-    
+    const {uniqueCategory} = useFetchData();
+    console.log(uniqueCategory)
+
+
     const [openIndex, setOpenIndex] = useState(null);
     function handleClick(index){
         setOpenIndex((prev) => (prev === index ? null : index));
@@ -48,23 +54,28 @@ export default function SideNav({ isOpen, onClose }){
     
     <aside className={`${styles.sideNav} ${isOpen ? styles.open : ""}`}>
         <ul className={styles.items}>
-            {items.map((item, index) => (
-                <li className={styles.item} key={item.title}>
-                    <nav className={styles.dropDownTitle} onClick={() => handleClick(index)}>
-                        <a href ={item.href}>{item.title}</a>
-                        {item.svg && item.path && (<svg width={item.svg.width} height={item.svg.height} fill={item.svg.fill} xmlns={item.svg.xmlns}>
-                            <path d={item.path.d} fill={item.path.fill}/>
-                        </svg>
+            {uniqueCategory.map((category, index) => (
+                <Link style={{ color: 'inherit', textDecoration: 'inherit'}} 
+                    to="/products" 
+                    state={{ category }}
+                >
+                    <li className={styles.item} key={category.title}>
+                        <nav className={styles.dropDownTitle} onClick={() => handleClick(index)}>
+                            <a href ={category.href}>{category.charAt(0).toUpperCase() + category.slice(1)}</a>
+                            {category.svg && category.path && (<svg width={category.svg.width} height={category.svg.height} fill={category.svg.fill} xmlns={category.svg.xmlns}>
+                                <path d={category.path.d} fill={category.path.fill}/>
+                            </svg>
+                            )}
+                        </nav>
+                        {category.links && openIndex === index && (
+                            <div className={styles.dropDowns}> 
+                                {category.links.map((link, liIndex) => (
+                                    <a href="link">{link}</a>
+                                ))}
+                        </div>
                         )}
-                    </nav>
-                    {item.links && openIndex === index && (
-                        <div className={styles.dropDowns}> 
-                            {item.links.map((link, liIndex) => (
-                                <a href="link">{link}</a>
-                            ))}
-                    </div>
-                    )}
-                </li>
+                    </li>
+                </Link>
                 ))}
         </ul></aside>
         

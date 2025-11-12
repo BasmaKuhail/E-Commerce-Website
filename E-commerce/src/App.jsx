@@ -12,7 +12,7 @@ import Cart from "./Components/Cart/Cart";
 import Checkout from "./Components/Checkout/Checkout";
 import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import { useRef, useState } from "react";
-import SideNav from "./Components/SideNav/SideNav";
+import ProductsPage from "./Components/Products/Products";
 
 
 function App() {
@@ -37,6 +37,7 @@ const [isSideNavOpen, setIsSideNavOpen] = useState(false);
         <Route path="/cart" element={<Cart shipping={0} />} />
         <Route path="/checkout" element={<Checkout shipping={0}/>} />
         <Route path="/pdp" element={<ProductDetails/>} />
+        <Route path="/products" element={<ProductsPage/>} />
       </Routes>
       
       <Footer/>
