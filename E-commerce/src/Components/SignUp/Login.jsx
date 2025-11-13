@@ -6,11 +6,11 @@ import Button from "./Button";
 import Title from "./Title";
 import { useState } from "react";
 import useFetchUsers from "../UsersList";
-
+import setLoggedin from "../../App"
 import {useNavigate} from 'react-router-dom'
 
 
-export default function Login({title, btntitle}){
+export default function Login({title, btntitle, setLoggedin }){
 
     const navigate = useNavigate()
 
@@ -69,7 +69,8 @@ export default function Login({title, btntitle}){
             if(checkPassword()){
                 setWarning("")
                 console.log("all correct")
-                navigate('/')
+                setLoggedin(true);
+                navigate('/');
 
             }else{
                 console.log("Incorrect password!")

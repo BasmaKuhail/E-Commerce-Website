@@ -17,8 +17,8 @@ import Category from "../Category/Category";
 import useFetchData from "../ProductList";
 import useFetchUsers from "../UsersList";
 
-export default function HomePage({initialSeconds, isSideNavOpen, setIsSideNavOpen }){
-
+export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIsSideNavOpen }){
+  console.log(loggedin)
   const { data: products, loading, error } = useFetchData();
   const { users } = useFetchUsers();
   console.log(users)
@@ -29,7 +29,7 @@ export default function HomePage({initialSeconds, isSideNavOpen, setIsSideNavOpe
   return(<div className="section-content">
 
         <div className={styles.firstGroup}>
-          <SideNav isOpen={isSideNavOpen} onClose={() => setIsSideNavOpen(false)}/>
+          <SideNav loggedin= {loggedin} isOpen={isSideNavOpen} onClose={() => setIsSideNavOpen(false)}/>
           <VrLine/>
           <MainImg/>
         </div>

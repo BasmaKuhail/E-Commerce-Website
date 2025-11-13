@@ -20,20 +20,23 @@ function App() {
 
 const timeLeft = useRef(30000);
 const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+
+const [loggedin, setLoggedin] = useState(false);
   return (<>
       <div className="sticky">
         <TopHead/>
-        <Header withIcons={true} onMenuClick={() => setIsSideNavOpen(prev => !prev)}/>
+        <Header setLoggedin={setLoggedin} loggedin ={loggedin} onMenuClick={() => setIsSideNavOpen(prev => !prev)}/>
       </div>
       <Routes>
         <Route path="/" element={
           <HomePage
             initialSeconds={timeLeft.current}
             isSideNavOpen={isSideNavOpen}
-            setIsSideNavOpen={setIsSideNavOpen} />}
+            setIsSideNavOpen={setIsSideNavOpen} 
+            loggedin={loggedin}/>}
         />
         <Route path="/signup" element={<SignUp title="Create an Account" btntitle={"Create Account"}/>} />
-        <Route path="/login" element={<Login title={"Login to Exclusive"}  btntitle={"Login"}/>} />
+        <Route path="/login" element={<Login setLoggedin={setLoggedin} title={"Login to Exclusive"}  btntitle={"Login"}/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/cart" element={<Cart shipping={0} />} />

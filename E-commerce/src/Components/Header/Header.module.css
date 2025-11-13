@@ -43,6 +43,10 @@
 .mainNav .icons .icon :hover{
     fill: var(--black);
 }
+.mainNav .icons .icon {
+    position: relative; /* Add this */
+    cursor: pointer;
+}
 
 a{
     color: var(--black);
@@ -83,3 +87,22 @@ a:hover, a:active{
     cursor: pointer;
 }
 
+.profileDropDowns{
+    position: absolute;
+    top: 80%; /* places it just below the icon */
+    right: 110px;   /* aligns right edge with icon */
+    background-color: var(--black);
+    color: white;
+    padding: 10px;
+    min-width: 180px; /* optional, for consistent width */
+    border-radius: 4px; /* optional, nice styling */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* optional */
+    z-index: 100; /* make sure it appears above other elements */
+}
+.profileItem{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: var(--small-size);
+    cursor: pointer;
+}

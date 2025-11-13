@@ -4,8 +4,8 @@ import { useState } from "react"
 export default function TopHead(){
 
 
- const[opened, setOpned] = useState(false);
- function handleOpenLang() {
+    const[opened, setOpned] = useState(false);
+    function handleOpenLang() {
         setOpned(!opened);
     }
    
