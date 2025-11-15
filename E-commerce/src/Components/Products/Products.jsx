@@ -6,18 +6,18 @@ import Card from "../Card/Card";
 
 export default function ProductsPage(){
     const location = useLocation();
-    const { category } = location.state || {}; //get category from state
-    {console.log(category)}
+    const {  title, filteredData} = location.state || {}; //get category from state
+    {console.log(title)}
     
-    let { data: products} = useFetchData();
+    // let { data: products} = useFetchData();
         
         //related items
-    products = products.filter((prdct) => prdct.category == category)
+    // products = products.filter((prdct) => prdct.category == category)
 
     return(<div  className="section-content" id={styles.container}>
-        <h1>{category}</h1>
+        <h1>{title}</h1>
         <div className={styles.cards}>
-            {products.map((product => <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp" state={{ product }}>
+            {filteredData.map((product => <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp" state={{ product }}>
                 <Card product = {product}/>
             </Link>))}
         </div>

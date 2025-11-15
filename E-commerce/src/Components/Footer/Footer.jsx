@@ -8,32 +8,34 @@ import facebook from "../../assets/Footer/facebook.svg"
 import instegram from "../../assets/Footer/instegram.svg"
 import twitter from "../../assets/Footer/twitter.svg"
 import linkedin from "../../assets/Footer/linkedin.svg"
+import { Link } from "react-router-dom";
 
 
 
 const allItems = [
     {head:"Exclusive",
         title: "Subscribe",
-        items: ["Get 10% off your first order"],
+        items: [{title: "Get 10% off your first order"}],
         input: "Enter your email"},
 
     {title:"Support",
-    items: ["111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.",
-            "exclusive@gmail.com",
-            "+888015-88888-9999"
+    items: [{title: "111 Bijoy sarani, Dhaka, DH 1515, Bangladesh."},
+            {title: "exclusive@gmail.com"},
+            {title: "+888015-88888-9999"}
         ]},
     {title: "Account",
-    items: ["My Account",
-            "Login / Register",
-            "Cart",
-            "Wishlist",
-            "Shop"
+    items: [{title:"My Account", to:"/account"},
+            {title: "Login",to: "/login"},
+            {title:"Register",to: "/signup"},
+            {title: "Cart", to: "/cart"},
+            {title:"Wishlist", to:"/wishlist"},
+            {title:"Shop", to:"/"}
         ]},
     {title: "QuickLink",
-    items:["Privacy Policy",
-            "Terms Of Use",
-            "FAQ",
-            "Contacts"]},
+    items:[{title: "Privacy Policy", to:"/"},
+            {title: "Terms Of Use", to:"/"},
+            {title: "FAQ", to:"/"},
+            {title: "Contacts", to:"/contact"}]},
     {title:"Download App",
     text:"Save $3 with App New User Only",
     logos: [facebook, instegram,twitter, linkedin]
@@ -47,7 +49,11 @@ function Group({head, title, arrayOFItems, input, text, logos}){
             <li className={styles.itemLi} id={styles.title}>{title}</li>
             {/* links */}
             {arrayOFItems && arrayOFItems.map((item => 
-                <li className={styles.itemLi} id={styles.item}>{item}</li>))}
+                <li className={styles.itemLi} id={styles.item}>
+                    <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to={item.to}>
+                        {item.title}
+                    </Link>
+                </li>))}
 
             {/* input */}
             {input&& <li className={styles.itemLi} id={styles.inputData}>

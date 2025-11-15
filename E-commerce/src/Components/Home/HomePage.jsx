@@ -20,6 +20,8 @@ import useFetchUsers from "../UsersList";
 export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIsSideNavOpen }){
   console.log(loggedin)
   const { data: products, loading, error } = useFetchData();
+
+  const bestRatingProsucts = products.filter((prdct) => prdct.rating > 4)
   const { users } = useFetchUsers();
   console.log(users)
 
@@ -67,11 +69,13 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
         
         <Title title="This Month"/>
         <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap"}}>
-          <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Best Selling Products</h1>
-          <Button color="red" text="View All"/>
+          <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Best Rating Products</h1>
+          <Link state={{ title:"Best Rating Products", filteredData: bestRatingProsucts }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/products">
+            <Button color="red" text="View All"/>
+          </Link>
         </div>
         <div className="cards">
-          {products.map((product => <Link state={{ product }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
+          {bestRatingProsucts.map((product => <Link state={{ product }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
               <Card product = {product}/>
             </Link>))}
         </div>

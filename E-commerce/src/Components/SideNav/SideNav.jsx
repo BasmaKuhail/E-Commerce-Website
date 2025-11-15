@@ -41,9 +41,8 @@ const items = [
 ];
 
 export default function SideNav({ isOpen, onClose }){
-    const {uniqueCategory} = useFetchData();
+    const {data, uniqueCategory} = useFetchData();
     console.log(uniqueCategory)
-
 
     const [openIndex, setOpenIndex] = useState(null);
     function handleClick(index){
@@ -57,7 +56,7 @@ export default function SideNav({ isOpen, onClose }){
             {uniqueCategory.map((category, index) => (
                 <Link style={{ color: 'inherit', textDecoration: 'inherit'}} 
                     to="/products" 
-                    state={{ category }}
+                    state={{ title: category,  filteredData: data.filter((product) => product.category == category)}}
                 >
                     <li className={styles.item} key={category.title}>
                         <nav className={styles.dropDownTitle} onClick={() => handleClick(index)}>
