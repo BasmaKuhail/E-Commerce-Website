@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 
 export default function BasicRating({rate}) {
-  const [value, setValue] = React.useState(rate);
 
   return (
     <Box sx={{ '& > legend': { mt: 2 } }}>

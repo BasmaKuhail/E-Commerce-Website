@@ -22,6 +22,7 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
   const { data: products, loading, error } = useFetchData();
 
   const bestRatingProsucts = products.filter((prdct) => prdct.rating > 4)
+  const bestDiscountProducts = products.filter((prdct) => prdct.discountPercentage > 10)
   const { users } = useFetchUsers();
   console.log(users)
 
@@ -45,7 +46,7 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
         </div>
         
         <div className="cards">
-          {products.map((product => <Link 
+          {bestDiscountProducts.map((product => <Link 
             state={{ product }} 
             style={{ color: 'inherit', textDecoration: 'inherit'}} 
             to="/pdp"
@@ -54,7 +55,12 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
               <Card product = {product}/>
             </Link>))}
         </div>
-        <Button color="red" text="View All Products"/>
+        <Link 
+          state={{ title: "Flash Sales", filteredData:bestDiscountProducts }} 
+          style={{ color: 'inherit', textDecoration: 'inherit'}} 
+          to="/products">
+            <Button color="red" text="View All Products"/>
+          </Link>
         <hr/>
         <Title title="Categories"/>
         <div style={{display:"flex", justifyContent:"space-between"}}>
@@ -87,12 +93,15 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
           <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Explore Our Products</h1>
           <NextPrev/>
         </div>
-        <div className={styles.explore} style={{display:"flex", justifyContent:"space-between", flexWrap:"wrap"}}>
+        <div className={styles.explore} style={{display:"flex", flexDirction: "row", justifyContent:"space-between", flexWrap:"wrap", gap:"20px"}}>
           {products.map((product => <Link state={{ product }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
               <Card product = {product}/>
             </Link>))}
         </div>
-        <Button color="red" text="View All Products"/>
+        <Link 
+          state={{ title: "Our Products", filteredData:products }} 
+          style={{ color: 'inherit', textDecoration: 'inherit'}} 
+          to="/products"><Button color="red" text="View All Products"/></Link>
 
         <Title title="Featured"/>
         <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>New Arrival</h1>
