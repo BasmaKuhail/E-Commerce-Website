@@ -106,3 +106,27 @@ a:hover, a:active{
     font-size: var(--small-size);
     cursor: pointer;
 }
+
+.results{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 0 0  4px 4px;
+    border: solid 1px var(--light-gray);
+    font-size: var(--small-size);
+}
+
+.img{
+    width: 50px;
+    height: auto;
+}
+.res{
+    width:243px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}

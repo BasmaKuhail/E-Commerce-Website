@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styles from "./Header.module.css"
 import { Link } from "react-router-dom";
 
@@ -7,16 +6,61 @@ import logout from "../../assets/Header/logout.svg"
 import user from "../../assets/Header/user.svg"
 import myOrder from "../../assets/Header/myORder.svg"
 import rating from "../../assets/Header/rating.svg"
+import { memo, useEffect, useRef, useState } from "react";
+import useFetchData from "../ProductList";
+
 
 function Search(){
+    const { data: products} = useFetchData();
+    const [userInput, setUserInput] = useState("")
+
+    const [searchResults, setSearchResults] = useState([])
+
+    const searchRef = useRef(null);
+
+    function handleChange(e){
+        const newInput = e.target.value;
+        setUserInput(newInput)
+        setSearchResults(search(newInput))
+        console.log(searchResults)
+    }
+
+    function search(input){
+       return products.filter(product => product.title.toLowerCase().includes(input))
+    }
+
+    useEffect(() => {
+        function handleClickOutside(e) {
+            if (searchRef.current && !searchRef.current.contains(e.target)) {
+                setSearchResults([]);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
     return(
+        <div ref={searchRef}>
         <nav className={styles.searchNav}>
-            <input className={styles.search} placeholder="What are you looking for?" type="text"/>
+            {console.log(userInput)}
+            <input onChange={handleChange} className={styles.search} placeholder="What are you looking for?" type="text" value={userInput}/>
             <svg className={styles.searchButton} width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17 17L13.2223 13.2156M15.3158 8.15789C15.3158 10.0563 14.5617 11.8769 13.2193 13.2193C11.8769 14.5617 10.0563 15.3158 8.15789 15.3158C6.2595 15.3158 4.43886 14.5617 3.0965 13.2193C1.75413 11.8769 1 10.0563 1 8.15789C1 6.2595 1.75413 4.43886 3.0965 3.0965C4.43886 1.75413 6.2595 1 8.15789 1C10.0563 1 11.8769 1.75413 13.2193 3.0965C14.5617 4.43886 15.3158 6.2595 15.3158 8.15789V8.15789Z" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
         </nav>
-        
+        {searchResults.length > 0 && (
+            <div className={styles.resultsContainer}>
+                <ul className={styles.results}>
+                    {searchResults.map((product) => <Link to="/pdp" state={{ product }} onClick={() => setSearchResults([])}>
+                        <li className={styles.res}>
+                            <img className={styles.img} src={product.images[0]}/>
+                            {product.title}
+                        </li>
+                    </Link>)}
+                </ul>
+
+            </div>
+        )}
+        </div>
     )
 }
 const items =[
@@ -27,17 +71,18 @@ const items =[
 ]
 
 
-export default function Header({ setLoggedin, loggedin, onMenuClick }){
+const Header = ({ setLoggedin, loggedin, onMenuClick }) => {
     const profileItems = [
-    {icon: user,
-        title: "Manage My Account"
-    },{icon: myOrder,
-        title: "My Order"
-    },{icon: cancle,
-        title: "My Canslations"
-    },{icon: rating,
-        title: "My Reviews"
-    },{icon: logout,
+    // {icon: user,
+    //     title: "Manage My Account"
+    // },{icon: myOrder,
+    //     title: "My Order"
+    // },{icon: cancle,
+    //     title: "My Canslations"
+    // },{icon: rating,
+    //     title: "My Reviews"
+    // },
+    {icon: logout,
         title: "Log Out",
         rout:handleLogOut,
     },
@@ -107,3 +152,5 @@ export default function Header({ setLoggedin, loggedin, onMenuClick }){
         
     )
 }
+
+export default memo(Header);
