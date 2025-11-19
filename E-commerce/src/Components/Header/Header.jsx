@@ -21,7 +21,7 @@ function Search(){
     function handleChange(e){
         const newInput = e.target.value;
         setUserInput(newInput)
-        setSearchResults(search(newInput))
+        setSearchResults(search(newInput.toLowerCase()))
         console.log(searchResults)
     }
 
@@ -67,7 +67,7 @@ const items =[
     {title: "Home", href:"/", visibility:false},
     {title: "Contact", href:"/contact", visibility:true},
     {title: "About", href:"/about" , visibility:true},
-    {title: "Sgin Up", href:"/signup" , visibility:true},
+    {title: "Sign Up", href:"/signup" , visibility:true},
 ]
 
 
