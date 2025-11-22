@@ -3,8 +3,11 @@ import styles from "./Cart.module.css"
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import { useCart } from "./CartContext";
+import cancle from "../../assets/Cart/cancle.svg"
 
 const headerrow =["Product", "Price", "Quantity" ,"Subtotal"];
+
+
 
 function Btn ({title}){
     return(<button className={styles.button}>
@@ -12,8 +15,9 @@ function Btn ({title}){
     </button>)
 }
 
+
 function TbRow(){
-    const { cartItems } = useCart();
+    const { cartItems, removeItem } = useCart();
     return(<div className={styles.tbContent}>
         <ul className={styles.row}>
             {headerrow.map((cell => <li className={styles.cell}>{cell}</li>))}
@@ -21,7 +25,8 @@ function TbRow(){
 
         {cartItems.map((item) => <ul key={item.id} className={styles.row}>
             <li className={styles.cell}>
-                <img className={styles.img} src={item.image}/>
+                <img onClick={() => removeItem(item)} className={styles.cancle} src={cancle}/>
+                <img className={styles.img} src={item.images[0]}/>
                 {item.title}
             </li>
             <li className={styles.cell}>${item.price}</li>

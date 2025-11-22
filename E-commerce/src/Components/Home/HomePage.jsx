@@ -16,6 +16,7 @@ import Category from "../Category/Category";
 
 import useFetchData from "../ProductList";
 import useFetchUsers from "../UsersList";
+import { useCart } from "../Cart/CartContext";
 
 export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIsSideNavOpen }){
   console.log(loggedin)
@@ -25,7 +26,7 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
   const bestDiscountProducts = products.filter((prdct) => prdct.discountPercentage > 10)
   const { users } = useFetchUsers();
   console.log(users)
-
+  
       // if (loading) return <p>Loading...</p>;
       // if (error) return <p>Error loading products</p>;
   // 1. New State for SideNav/Mobile Menu visibility

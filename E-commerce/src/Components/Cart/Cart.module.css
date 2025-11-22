@@ -112,3 +112,17 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.cancle{
+    background-color: var(--red);
+    padding: 5px;
+    border-radius: 10px;
+    position: absolute;
+    margin-bottom: 30px;
+    margin-right: 20px;
+    width: 10px;
+}
+
+.cancle:hover{
+    background-color: var(--black);
+}

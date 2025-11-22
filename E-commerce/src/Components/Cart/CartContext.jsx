@@ -24,6 +24,18 @@ export function CartProvider({ children }) {
             }
         }
     };
+
+    const removeItem = (product) => {
+        if (product) {
+            // Logic to check if item is already in cart and just increment quantity
+            const existingItem = cartItems.find(item => item.id === product.id);
+            if (existingItem) {
+                setCartItems(cartItems.filter(prdct => prdct.id !== product.id));
+                console.log("item removerd")
+                console.log(cartItems)
+            }
+        }
+    }
     
     // Calculate total from cartItems
     const cartTotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -31,6 +43,7 @@ export function CartProvider({ children }) {
     const contextValue = {
         cartItems,
         addItem,
+        removeItem,
         cartTotal,
         // more removeItem, updateQuantity, etc.
     };
