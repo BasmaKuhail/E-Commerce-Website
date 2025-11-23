@@ -1,7 +1,7 @@
 import styles from "./Arrival.module.css";
 
 import PlayStation from "../../assets/Arrivals/PlayStation.png"
-import woman from "../../assets/Arrivals/woman.png"
+import manhat from "../../assets/Arrivals/manhat.png"
 import Speakers from "../../assets/Arrivals/Speakers.png"
 import Perfume from "../../assets/Arrivals/Perfume.png"
 
@@ -10,9 +10,9 @@ const data =[
         title:"PlayStation 5",
         text:"Black and White version of the PS5 coming out on sale."
     },
-    { url:woman,
-        title:"Women's Collections",
-        text:"Featured woman collections that give you another vibe"
+    { url:manhat,
+        title:"Mens's Collections",
+        text:"Featured men collections that give you another vibe"
     },
     { url:Speakers,
         title:"Speakers",
