@@ -14,6 +14,7 @@ import ProductDetails from "./Components/ProductDetails/ProductDetails";
 import { useRef, useState } from "react";
 import ProductsPage from "./Components/Products/Products";
 import Login from "./Components/SignUp/Login";
+import { ToastContainer } from "react-toastify";
 
 
 function App() {
@@ -44,7 +45,8 @@ const [loggedin, setLoggedin] = useState(false);
         <Route path="/pdp" element={<ProductDetails/>} />
         <Route path="/products" element={<ProductsPage/>} />
       </Routes>
-      
+      <ToastContainer position="top-left" autoClose={1500}/>
+
       <Footer/>
     </>)
 }

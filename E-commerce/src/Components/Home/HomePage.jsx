@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import styles from "./Home.module.css"
 import Button from "../Button/Button";
 import Card from "../Card/Card";
@@ -16,7 +17,6 @@ import Category from "../Category/Category";
 
 import useFetchData from "../ProductList";
 import useFetchUsers from "../UsersList";
-import { useCart } from "../Cart/CartContext";
 
 export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIsSideNavOpen }){
   console.log(loggedin)
