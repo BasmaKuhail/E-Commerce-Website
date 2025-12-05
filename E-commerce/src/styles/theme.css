@@ -4,6 +4,12 @@
     margin: 0 auto;
     max-width: 1250px;
 }
+/* mobile screen */
+@media (max-width:600px) {
+  .section-content{
+    padding: 20px;
+  }
+}
 :root{
     /* colors */
     --black: #000000;

@@ -74,19 +74,21 @@ export default function ProductDetails(){
     return(<div id={styles.pageContainer} className="section-content" >
 
     <div id={styles.productContainer}>
-        <div className={styles.otherImgs}>
-            {product.images.map((img,index) => 
-                <img 
-                    key={index}
-                    onClick={() => handleImgClick(index)} 
-                    className={styles.smallImg} 
-                    src={img}
-                    alt={`product ${index}`}
-                />
-            )} 
-        </div>
-        <div className={styles.mainImgContainer}>
-            <img className={styles.mainImg} src={product.images[currentIndex]}/>
+        <div className={styles.images}>
+            <div className={styles.otherImgs}>
+                {product.images.map((img,index) => 
+                    <img 
+                        key={index}
+                        onClick={() => handleImgClick(index)} 
+                        className={styles.smallImg} 
+                        src={img}
+                        alt={`product ${index}`}
+                    />
+                )} 
+            </div>
+            <div className={styles.mainImgContainer}>
+                <img className={styles.mainImg} src={product.images[currentIndex]}/>
+            </div>
         </div>
         <div className={styles.detailscontainer}>
             <ul className={styles.items}>
@@ -133,12 +135,12 @@ export default function ProductDetails(){
             </div>
         </div>
     </div>
-        <Title title="Related Item"/>
-        <div className="cards">
-           {products.map((product => <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp" state={{ product }}>
-                <Card product = {product}/>
-            </Link>))}
-        </div>
+    <Title title="Related Item"/>
+    <div className="cards">
+        {products.map((product => <Link style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp" state={{ product }}>
+            <Card product = {product}/>
+        </Link>))}
+    </div>
     
     </div> )
 }
