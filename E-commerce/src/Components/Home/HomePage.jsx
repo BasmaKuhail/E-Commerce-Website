@@ -25,7 +25,7 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
   const bestRatingProsucts = products.filter((prdct) => prdct.rating > 4)
   const bestDiscountProducts = products.filter((prdct) => prdct.discountPercentage > 10)
   const { users } = useFetchUsers();
-  console.log(users)
+  console.log(products)
   
       // if (loading) return <p>Loading...</p>;
       // if (error) return <p>Error loading products</p>;

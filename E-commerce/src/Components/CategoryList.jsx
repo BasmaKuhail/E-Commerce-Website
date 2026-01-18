@@ -8,15 +8,13 @@ export default function useFetchData() {
 
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/products")
+    fetch("http://localhost:8080/api/categories")
       .then(res => res.json())
       .then(json => setData(json.content))
       .catch(err => setError(err))
       .finally(() => setLoading(false));
   }, []);
-  const category = data.map(((product) => product.category));
-  const uniqueCategory = [...new Set(category)];
   console.log(data)
 
-  return { data, loading, error, uniqueCategory };
+  return { data, loading, error };
 }

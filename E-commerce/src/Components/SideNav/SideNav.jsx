@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
-import useFetchData from "../ProductList";
+import useFetchData from "../CategoryList";
 import styles from "./SideNav.module.css"
 import { useState } from "react"
 
@@ -41,8 +41,8 @@ const items = [
 ];
 
 export default function SideNav({ isOpen, onClose }){
-    const {data, uniqueCategory} = useFetchData();
-    console.log(uniqueCategory)
+    const {data} = useFetchData();
+    console.log(data)
 
     const [openIndex, setOpenIndex] = useState(null);
     function handleClick(index){
@@ -53,14 +53,14 @@ export default function SideNav({ isOpen, onClose }){
     
     <aside className={`${styles.sideNav} ${isOpen ? styles.open : ""}`}>
         <ul className={styles.items}>
-            {uniqueCategory.map((category, index) => (
+            {data.map((category, index) => (
                 <Link style={{ color: 'inherit', textDecoration: 'inherit'}} 
                     to="/products" 
-                    state={{ title: category,  filteredData: data.filter((product) => product.category == category)}}
+                    state={{ title: category, filteredData: data.filter((product) => product.category == category)}}
                 >
                     <li className={styles.item} key={category.title}>
                         <nav className={styles.dropDownTitle} onClick={() => handleClick(index)}>
-                            {category.charAt(0).toUpperCase() + category.slice(1)}
+                            {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
                             {category.svg && category.path && (<svg width={category.svg.width} height={category.svg.height} fill={category.svg.fill} xmlns={category.svg.xmlns}>
                                 <path d={category.path.d} fill={category.path.fill}/>
                             </svg>

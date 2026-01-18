@@ -8,10 +8,10 @@ export default function Text({title, price, instedOf, rate, count}){
         </li>
         <li className={styles.item}>
             <p className={styles.price}>${price}</p>
-            <p className={styles.instedOf}>${instedOf}</p>
+            {(instedOf != price) && <p className={styles.instedOf}>${instedOf}</p>}
         </li>
         <ul className={styles.stars}>
-            <li><Stars rate={rate}/></li>
+            {/* <li><Stars rate={rate}/></li> */}
             <li className={styles.rating}>{count}</li>
         </ul>
     </ul>

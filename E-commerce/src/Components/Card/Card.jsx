@@ -28,17 +28,19 @@ export default function Card({product}){
             {/* {console.log(product)} */}
             <div className={styles.imgContainer}>
                 <div className={styles.offerIcon}>
-                    <OfferBox offer={product.discountPercentage}/>
+                    {(product.salePercentage != 0) &&   <OfferBox offer={product.salePercentage}/>}
                     <Icons/>
                 </div>
-                <CardImg url={product.images[0]}/>
+                
+                <CardImg image={product.images}/>
+                
                 {!foundInCart(product) && <AddToCart product={product}/>}
                 {foundInCart(product) && <RemoveFromCart product={product}/>}
                 
             </div>
 
             <div className={styles.titleContainer}>
-                <Text title={product.title} price={product.price} instedOf ="400" rate={product.rating}/>
+                <Text title={product.productName} price={product.basePrice * (1 - product.salePercentage / 100)} instedOf ={product.basePrice} rate={product.rating}/>
             </div>
         </div>
     )
