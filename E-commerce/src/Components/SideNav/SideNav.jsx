@@ -56,7 +56,7 @@ export default function SideNav({ isOpen, onClose }){
             {data.map((category, index) => (
                 <Link style={{ color: 'inherit', textDecoration: 'inherit'}} 
                     to="/products" 
-                    state={{ title: category, filteredData: data.filter((product) => product.category == category)}}
+                    state={{ category: category}} key={category}
                 >
                     <li className={styles.item} key={category.title}>
                         <nav className={styles.dropDownTitle} onClick={() => handleClick(index)}>
