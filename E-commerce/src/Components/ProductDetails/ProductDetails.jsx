@@ -81,29 +81,30 @@ export default function ProductDetails(){
                         key={index}
                         onClick={() => handleImgClick(index)} 
                         className={styles.smallImg} 
-                        src={img}
-                        alt={`product ${index}`}
+                        src={img.imageURL}
+                        alt={img.altText}
                     />
                 )} 
             </div>
             <div className={styles.mainImgContainer}>
-                <img className={styles.mainImg} src={product.images[currentIndex]}/>
+                <img className={styles.mainImg} src={product.images[currentIndex].imageURL} alt={product.images[currentIndex].altText}/>
             </div>
         </div>
         <div className={styles.detailscontainer}>
             <ul className={styles.items}>
                 <li className={styles.item}>
-                    <h2>{product.title}</h2>
+                    <h2>{product.productName}</h2>
                 </li>
                 <li className={styles.item}>
-                    <BasicRating rate={product.rating}/>
+                    <BasicRating rate={product.averageRating}/>
                     <p className={styles.reviews}>({product.reviews.length} Reviews)</p> 
                     <p className={styles.reviews}>| </p>
                     {(product.stock > 0)&& <p className={styles.inStock}>in Stock</p>}
                     {(product.stock == 0)&& <p className={styles.outStock}>out Stock</p>}
                 </li>
-                <li className={styles.item} id={styles.price}>$ {product.price}</li>
-                <li className={styles.item}>{product.about}</li>
+                <li className={styles.item} id={styles.price}>$ {product.basePrice}</li>
+                {(product.onSale) && <li className={styles.item} id={styles.price}>$ {product.basePrice * (1 - product.salePercentage / 100)}</li>}
+                <li className={styles.item}>{product.description}</li>
                 <hr className={styles.hr}/>
 
                 <li className={styles.item}>Colors: 
