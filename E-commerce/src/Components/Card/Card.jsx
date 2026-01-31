@@ -40,7 +40,7 @@ export default function Card({product}){
             </div>
 
             <div className={styles.titleContainer}>
-                <Text title={product.productName} price={product.basePrice * (1 - product.salePercentage / 100)} instedOf ={product.basePrice} rate={product.rating}/>
+                <Text title={product.productName} price={(product.basePrice * (1 - product.salePercentage / 100)).toFixed(2)} instedOf ={product.basePrice} rate={product.rating}/>
             </div>
         </div>
     )

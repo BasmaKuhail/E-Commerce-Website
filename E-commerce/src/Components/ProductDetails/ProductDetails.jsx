@@ -102,8 +102,9 @@ export default function ProductDetails(){
                     {(product.stock > 0)&& <p className={styles.inStock}>in Stock</p>}
                     {(product.stock == 0)&& <p className={styles.outStock}>out Stock</p>}
                 </li>
-                <li className={styles.item} id={styles.price}>$ {product.basePrice}</li>
-                {(product.onSale) && <li className={styles.item} id={styles.price}>$ {product.basePrice * (1 - product.salePercentage / 100)}</li>}
+                {(product.onSale) && <li style={{ textDecoration: 'line-through' }} className={styles.item} id={styles.price}>$ {product.basePrice}</li>}
+                {(!product.onSale) && <li className={styles.item} id={styles.price}>$ {product.basePrice}</li>}
+                {(product.onSale) && <li className={styles.item} id={styles.price}>$ {(product.basePrice * (1 - product.salePercentage / 100)).toFixed(2)}</li>}
                 <li className={styles.item}>{product.description}</li>
                 <hr className={styles.hr}/>
 
