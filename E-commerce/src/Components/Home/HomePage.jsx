@@ -17,19 +17,53 @@ import Category from "../Category/Category";
 
 import useFetchData from "../ProductList";
 import useFetchUsers from "../UsersList";
+import useFetchTags from "../TagList";
+import useFetchProductsByTagName from "../ProductsByTag";
+import { useEffect, useState } from "react";
+import { s } from "framer-motion/client";
 
 export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIsSideNavOpen }){
   console.log(loggedin)
-  const { data: products, loading, error } = useFetchData();
 
-  const bestRatingProsucts = products.filter((prdct) => prdct.rating > 4)
-  const bestDiscountProducts = products.filter((prdct) => prdct.discountPercentage > 10)
+  const { products} = useFetchData();
+  const { tags } = useFetchTags();
+
   const { users } = useFetchUsers();
   console.log(products)
   
-      // if (loading) return <p>Loading...</p>;
-      // if (error) return <p>Error loading products</p>;
-  // 1. New State for SideNav/Mobile Menu visibility
+  function TagsSection({ tag, initialSeconds }){
+    const { productsByTagName, loading, error } = useFetchProductsByTagName(tag.name);
+      {if(productsByTagName.length == 0) return(<></>);}
+      {if(tag.name == "New" || tag.name == "Best Seller") return(<></>);}
+        return(<>
+          <div className={styles.secendGroup}>
+            <div className={styles.secendGroupInner}>
+              <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>{tag.name}</h1>
+              <Timer initialSeconds={initialSeconds}/>
+            </div> 
+            <NextPrev/>          
+          </div>
+          
+          <div className="cards">
+            {productsByTagName.map((product => <Link 
+              state={{ product }} 
+              style={{ color: 'inherit', textDecoration: 'inherit'}} 
+              to="/pdp"
+              explore>
+
+                <Card product = {product}/>
+              </Link>))}
+          </div>
+          {/* <Link 
+            state={{ title: "Flash Sales", filteredData:bestDiscountProducts }} 
+            style={{ color: 'inherit', textDecoration: 'inherit'}} 
+            to="/products">
+              <Button color="red" text="View All Products"/>
+            </Link> */}
+          <hr/>
+        </>);
+      }
+
   return(<div className="section-content">
 
         <div className={styles.firstGroup}>
@@ -38,31 +72,14 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
           <MainImg/>
         </div>
         <Title title="Today's"/>
-        <div className={styles.secendGroup}>
-          <div className={styles.secendGroupInner}>
-            <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Flash Sales</h1>
-            <Timer initialSeconds={initialSeconds}/>
-          </div> 
-          <NextPrev/>          
-        </div>
         
-        <div className="cards">
-          {bestDiscountProducts.map((product => <Link 
-            state={{ product }} 
-            style={{ color: 'inherit', textDecoration: 'inherit'}} 
-            to="/pdp"
-            explore>
-
-              <Card product = {product}/>
-            </Link>))}
-        </div>
-        <Link 
-          state={{ title: "Flash Sales", filteredData:bestDiscountProducts }} 
-          style={{ color: 'inherit', textDecoration: 'inherit'}} 
-          to="/products">
-            <Button color="red" text="View All Products"/>
-          </Link>
-        <hr/>
+        {tags.map(tag => (
+          <TagsSection
+            key={tag.id}
+            tag={tag}
+            initialSeconds={initialSeconds}
+          />
+        ))}
         <Title title="Categories"/>
         <div style={{display:"flex", justifyContent:"space-between"}}>
           <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Browse By Category</h1>
@@ -73,20 +90,6 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
           <Category/>
         
         <hr/>
-        
-        <Title title="This Month"/>
-        <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", flexWrap:"wrap"}}>
-          <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Best Rating Products</h1>
-          <Link state={{ title:"Best Rating Products", filteredData: bestRatingProsucts }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/products">
-            <Button color="red" text="View All"/>
-          </Link>
-        </div>
-        <div className="cards">
-          {bestRatingProsucts.map((product => <Link state={{ product }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
-              <Card product = {product}/>
-            </Link>))}
-        </div>
-
 
         {/* <Ad head="Categories" ad="Enhance Your Music Experience"/> */}
         <Title title="Our Products"/>

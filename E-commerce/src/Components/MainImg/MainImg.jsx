@@ -3,43 +3,22 @@ import iphone from "../../assets/MainBody/iphone.png"
 import MainBody1 from "../../assets/MainBody/MainBody1.png"
 import MainBody2 from "../../assets/MainBody/MainBody2.png"
 import { useState } from "react";
+import useFetchProductsByTagName from "../ProductsByTag";
 
-const items =[{
-    img: MainBody1,
-    icon: iphone,
-    title: "iPhone 14 Series",
-    text: "Up to 10% off Voucher"
-    },
-  {img: MainBody2,
-    icon: iphone,
-    title: "iPhone 17 Series",
-    text: "Up to 15% off Voucher",
-  },{
-    img: MainBody1,
-    icon: iphone,
-    title: "iPhone 14 Series",
-    text: "Up to 10% off Voucher"
-    },
-  {img: MainBody2,
-    icon: iphone,
-    title: "iPhone 17 Series",
-    text: "Up to 15% off Voucher",
-  },{
-    img: MainBody1,
-    icon: iphone,
-    title: "iPhone 14 Series",
-    text: "Up to 10% off Voucher"
-    }
-]
 
-function Img({item}){
+
+function Img({image}){
     return (<>
-        <img className={styles.img} alt="device" src={item.img}/>
+        <img className={styles.img} src={image[0]?.imageURL} alt={image[0]?.altText}/>
     </>)
 }
 export default function MainImg(){
     const [current, setCurrent] = useState(0);
-
+    const { productsByTagName} = useFetchProductsByTagName("Best Seller");
+        
+    console.log(productsByTagName)
+    {if(!productsByTagName) return(<div className={styles.mainDiv}>loading...</div>);} 
+    {if(productsByTagName) 
     return(
         <div className={styles.mainDiv}>
             <div className={styles.vr}>
@@ -47,11 +26,10 @@ export default function MainImg(){
                     <ul className={styles.textContent}>
                         
                         <li className={styles.item} id={styles.titleCont}>
-                            <img className={styles.icon} alt="device" src={items[current].icon}/>
-                            <p className={styles.title}>{items[current].title}</p>
+                            {productsByTagName[current].description}
                         </li>
                         <li className={styles.item}>
-                            <p className={styles.text}>{items[current].text}</p>
+                            <p className={styles.text}>{productsByTagName[current].productName}</p>
                         </li>
                         <li className={styles.item}>
                             <a className={styles.shop} href="#">Shop Now</a>
@@ -60,11 +38,11 @@ export default function MainImg(){
                             </svg>
                         </li>
                     </ul>
-                    <Img item={items[current]}/>
+                    <Img image={productsByTagName[current].images}/>
                 </div>
                 {/* Slider Dots */}
                 <div className={styles.slider}>
-                {items.map((_, index) => (
+                {productsByTagName.map((_, index) => (
                     <div
                     key={index}
                     className={styles.dot}
@@ -78,5 +56,5 @@ export default function MainImg(){
                 </div>
             </div>
         </div>
-    )
+    )}
 }

@@ -18,10 +18,10 @@ const data =[
 export default function Category(){
     return(
         <div className={styles.Container}>
-            {data.map((item => <div className={styles.category}>
+            {data.map((item, index) => <div key={index} className={styles.category}>
                 <img src={item.url}  className={styles.icon}/>
                 <p className={styles.title}>{item.text}</p>
-            </div>))}
+            </div>)}
             
         </div>
     )
