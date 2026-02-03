@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import useFetchData from "../CategoryList";
 import styles from "./SideNav.module.css"
 import { useState } from "react"
+import useFetchCategories from "../CategoryList";
 
 
 
@@ -41,8 +42,9 @@ const items = [
 ];
 
 export default function SideNav({ isOpen, onClose }){
-    const {data} = useFetchData();
-    console.log(data)
+    const { categories } = useFetchCategories();
+    
+    console.log(categories)
 
     const [openIndex, setOpenIndex] = useState(null);
     function handleClick(index){
@@ -50,10 +52,10 @@ export default function SideNav({ isOpen, onClose }){
     }
     return(<>
     {isOpen && <div className={styles.overlay} onClick={onClose}></div>}
-    
+    {categories.length === 0 && <div >Loading...</div>}
     <aside className={`${styles.sideNav} ${isOpen ? styles.open : ""}`}>
         <ul className={styles.items}>
-            {data.map((category, index) => (
+            {categories.map((category, index) => (
                 <Link style={{ color: 'inherit', textDecoration: 'inherit'}} 
                     to="/products" 
                     state={{ category: category}} key={category}
