@@ -59,7 +59,10 @@ export default function MainImg(){
                     <ul className={styles.textContent}>
                         
                         <li className={styles.item} id={styles.titleCont}>
-                            {currentProduct.description}
+                            {productsByTagName[current].description}
+                        </li>
+                        <li className={styles.item}>
+                            <p className={styles.text}>{productsByTagName[current].productName}</p>
                         </li>
                         <li className={styles.item}>
                             <p className={styles.text}>{currentProduct.productName}</p>
@@ -74,8 +77,8 @@ export default function MainImg(){
                         </Link>
 
                     </ul>
-                    <Img image={currentProduct.images}/>
-                </div>}
+                    <Img image={productsByTagName[current].images}/>
+                </div>
                 {/* Slider Dots */}
                 <div className={styles.slider}>
                 {productsByTagName.map((_, index) => (
@@ -95,5 +98,5 @@ export default function MainImg(){
                 </div>
             </div>
         </div>
-    )
+    )}
 }

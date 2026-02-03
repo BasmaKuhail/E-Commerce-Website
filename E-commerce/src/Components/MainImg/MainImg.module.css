@@ -41,8 +41,8 @@
     text-decoration: underline;
 }
 .img{
-    width: 37vw;
-    height: auto;
+    width: 50%;
+    margin: 10px;
 }
 .slider{
     display: flex;

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function useFetchData() {
-  const [data, setData] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
@@ -10,13 +10,11 @@ export default function useFetchData() {
   useEffect(() => {
     fetch("http://localhost:8080/api/products")
       .then(res => res.json())
-      .then(json => setData(json.content))
+      .then(json => setProducts(json.content))
       .catch(err => setError(err))
       .finally(() => setLoading(false));
   }, []);
-  const category = data.map(((product) => product.category));
-  const uniqueCategory = [...new Set(category)];
-  console.log(data)
+  console.log(products)
 
-  return { data, loading, error, uniqueCategory };
+  return { products, loading, error };
 }

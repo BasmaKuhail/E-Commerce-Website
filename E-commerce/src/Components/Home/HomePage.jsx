@@ -18,13 +18,16 @@ import Category from "../Category/Category";
 import useFetchData from "../ProductList";
 import useFetchUsers from "../UsersList";
 import useFetchTags from "../TagList";
-import useFetchProductsByTagName from "../ProductByTagList";
+import useFetchProductsByTagName from "../ProductsByTag";
+import { useEffect, useState } from "react";
+import { s } from "framer-motion/client";
 
 export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIsSideNavOpen }){
   console.log(loggedin)
-  const { data: products, loading, error } = useFetchData();
 
+  const { products} = useFetchData();
   const { tags } = useFetchTags();
+
   const { users } = useFetchUsers();
   console.log(products)
   
@@ -79,8 +82,6 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
             initialSeconds={initialSeconds}
           />
         ))}
-
-
         <Title title="Categories"/>
         <div className="flex justify-between items-center mb-4">
           <h1 className="font-poppins font-medium text-lg">Browse By Category</h1>
