@@ -9,7 +9,7 @@ export default function TopHead(){
     }
    
     return(
-        <nav className="bg-black text-white font-poppins text-sm w-full sticky top-0 z-50">
+        <nav className="sticky top-0 z-40 w-full bg-black text-white shadow-sm transition-shadow">
             <div className="container mx-auto max-w-[1250px] flex items-center justify-between px-4 py-2">
                 <ul className="hidden sm:flex items-center gap-4 flex-1 justify-center text-center">
                     <li className="font-light">

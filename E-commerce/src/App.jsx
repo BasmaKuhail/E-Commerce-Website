@@ -24,7 +24,7 @@ const [isSideNavOpen, setIsSideNavOpen] = useState(false);
 
 const [loggedin, setLoggedin] = useState(false);
   return (<>
-      <div className="sticky">
+      <div className="sticky top-0 z-50">
         <TopHead/>
         <Header setLoggedin={setLoggedin} loggedin ={loggedin} onMenuClick={() => setIsSideNavOpen(prev => !prev)}/>
       </div>

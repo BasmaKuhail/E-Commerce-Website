@@ -36,18 +36,19 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
       {if(productsByTagName.length == 0) return(<></>);}
       {if(tag.name == "New" || tag.name == "Best Seller") return(<></>);}
         return(<>
-          <div className={styles.secendGroup}>
-            <div className={styles.secendGroupInner}>
-              <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>{tag.name}</h1>
+          <div className="flex flex-col md:flex-row justify-between mb-8">
+            <div className="flex flex-wrap items-center gap-2 md:gap-24">
+              <h1 className="font-poppins font-medium text-lg">{tag.name}</h1>
               <Timer initialSeconds={initialSeconds}/>
             </div> 
             <NextPrev/>          
           </div>
           
-          <div className="cards">
+          <div className="flex flex-wrap gap-5 overflow-x-auto md:overflow-visible">
             {productsByTagName.map((product => <Link 
+              key={product.id}
               state={{ product }} 
-              style={{ color: 'inherit', textDecoration: 'inherit'}} 
+              className="flex-shrink-0"
               to="/pdp"
               explore>
 
@@ -60,19 +61,20 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
             to="/products">
               <Button color="red" text="View All Products"/>
             </Link> */}
-          <hr/>
+          <hr className="my-8" />
         </>);
       }
 
-  return(<div className="section-content">
+  return(<div className="max-w-[1250px] mx-auto px-4 sm:px-6">
 
-        <div className={styles.firstGroup}>
+        <div className="flex flex-wrap md:flex-nowrap justify-between mb-24">
           <SideNav loggedin= {loggedin} isOpen={isSideNavOpen} onClose={() => setIsSideNavOpen(false)}/>
           <VrLine/>
           <MainImg/>
         </div>
+
+
         <Title title="Today's"/>
-        
         {tags.map(tag => (
           <TagsSection
             key={tag.id}
@@ -81,34 +83,41 @@ export default function HomePage({loggedin, initialSeconds, isSideNavOpen, setIs
           />
         ))}
         <Title title="Categories"/>
-        <div style={{display:"flex", justifyContent:"space-between"}}>
-          <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Browse By Category</h1>
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="font-poppins font-medium text-lg">Browse By Category</h1>
           <NextPrev/>
         </div>
-
-       
-          <Category/>
+        <Category/>
         
-        <hr/>
+        <hr className="my-8" />
 
         {/* <Ad head="Categories" ad="Enhance Your Music Experience"/> */}
         <Title title="Our Products"/>
-        <div style={{display:"flex", justifyContent:"space-between"}}>
-          <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>Explore Our Products</h1>
+        <div className="flex justify-between items-center mb-4">
+          <h1 className="font-poppins font-medium text-lg">Explore Our Products</h1>
           <NextPrev/>
         </div>
-        <div className={styles.explore} style={{display:"flex", flexDirction: "row", justifyContent:"space-between", flexWrap:"wrap", gap:"20px"}}>
-          {products.map((product => <Link state={{ product }} style={{ color: 'inherit', textDecoration: 'inherit'}} to="/pdp">
+        <div className="flex flex-wrap gap-5 justify-between">
+          {products.map((product => 
+            <Link 
+              state={{ product }} 
+              className="flex-shrink-0" 
+              to="/pdp"
+              key={product.id}
+            > 
               <Card product = {product}/>
-            </Link>))}
+            </Link>
+          ))}
         </div>
+
         <Link 
           state={{ title: "Our Products", filteredData:products }} 
-          style={{ color: 'inherit', textDecoration: 'inherit'}} 
-          to="/products"><Button color="red" text="View All Products"/></Link>
+          className="flex-shrink-0" 
+          to="/products"
+        ><Button color="red" text="View All Products"/></Link>
 
         <Title title="Featured"/>
-        <h1 style={{fontFamily: "var(--font-main)", fontWeight: "var(--meduim)"}}>New Arrival</h1>
+        <h1 className="font-poppins font-medium text-lg">New Arrival</h1>
         <Arrivals/>
         <Ending/>
       </div>)
