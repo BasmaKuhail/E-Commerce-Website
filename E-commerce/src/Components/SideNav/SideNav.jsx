@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import useFetchData from "../CategoryList";
 import styles from "./SideNav.module.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import useFetchCategories from "../CategoryList";
 
 
@@ -42,44 +42,72 @@ const items = [
 ];
 
 export default function SideNav({ isOpen, onClose }){
-    const { categories } = useFetchCategories();
-    
+    const {categories} = useFetchCategories();
     console.log(categories)
 
     const [openIndex, setOpenIndex] = useState(null);
     function handleClick(index){
         setOpenIndex((prev) => (prev === index ? null : index));
     }
+
+    //lock body scroll when sidenav is open
+    useEffect(() => {
+        if(isOpen) document.body.style.overflow = "hidden";
+        else document.body.style.overflow = "auto";
+    }, [isOpen]);
+
     return(<>
-    {isOpen && <div className={styles.overlay} onClick={onClose}></div>}
-    {categories.length === 0 && <div >Loading...</div>}
-    <aside className={`${styles.sideNav} ${isOpen ? styles.open : ""}`}>
-        <ul className={styles.items}>
-            {categories.map((category, index) => (
-                <Link style={{ color: 'inherit', textDecoration: 'inherit'}} 
-                    to="/products" 
-                    state={{ category: category}} key={category}
-                >
-                    <li className={styles.item} key={category.title}>
-                        <nav className={styles.dropDownTitle} onClick={() => handleClick(index)}>
-                            {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
-                            {category.svg && category.path && (<svg width={category.svg.width} height={category.svg.height} fill={category.svg.fill} xmlns={category.svg.xmlns}>
-                                <path d={category.path.d} fill={category.path.fill}/>
+        {isOpen && <div className="fixed inset-0 bg-black/40 z-90 lg:hidden" onClick={onClose}></div>}
+        
+        <aside
+            className={`
+                fixed top-0 left-0 h-screen w-64 bg-white
+                z-[100] transform transition-transform duration-300 ease-in-out
+                ${isOpen ? "translate-x-0" : "-translate-x-full"}
+                lg:translate-x-0 lg:static lg:h-auto
+            `}
+        >
+            <ul className="mt-12 px-5 space-y-5">
+                {categories.map((category, index) => (
+                    <li className="text-base font-medium" key={category.title}>
+                        <Link 
+                            className="flex items-center justify-between cursor-pointer hover:text-red-500 transition"
+                            to="/products" 
+                            state={{ category: category}} 
+                            key={category}
+                            onClick={() => handleClick(index)}
+                        >
+                            <span>
+                                {category.name.charAt(0).toUpperCase() + category.name.slice(1)}
+                            </span>
+
+                            {/* Optional arrow */}
+                            {category.svg && category.path && (
+                            <svg
+                                width={category.svg.width}
+                                height={category.svg.height}
+                                viewBox={category.svg.viewBox}
+                                className={`transition-transform ${
+                                openIndex === index ? "rotate-90" : ""
+                                }`}
+                            >
+                                <path d={category.path.d} fill={category.path.fill} />
                             </svg>
                             )}
-                        </nav>
-                        {/* {category.links && openIndex === index && (
-                            <div className={styles.dropDowns}> 
-                                {category.links.map((link, liIndex) => (
-                                    <a href="link">{link}</a>
-                                ))}
-                        </div>
-                        )} */}
-                    </li>
-                </Link>
+                        </Link>
+                        {/* Dropdown (optional) */}
+                        {category.links && openIndex === index && (
+                            <div className="mt-3 ml-3 flex flex-col gap-2 text-sm text-gray-600">
+                            {category.links.map((link, i) => (
+                                <a key={i} href="#" className="hover:underline">
+                                {link}
+                                </a>
+                            ))}
+                            </div>
+                        )}
+                    </li>   
                 ))}
-        </ul></aside>
-        
-        </>
-    );
+            </ul>
+        </aside>
+    </>);
 }
