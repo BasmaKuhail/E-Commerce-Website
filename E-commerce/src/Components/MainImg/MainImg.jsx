@@ -102,6 +102,7 @@ export default function MainImg(){
                 {currentProduct && (
                 <div
                     className="
+                        flex flex-col
                         flex justify-between
                         h-[400px]
                         overflow-hidden
