@@ -1,103 +1,82 @@
-import styles from "./MainImg.module.css"
 import { useState, useEffect } from "react";
 import { Line } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 import useFetchProductsByTagName from "../ProductByTagList";
+import MainImgSkeleton from "./MainImageSkeleton";
+import Img from "./Img";
+import TextContent from "./TextContent";
 
-// const items =[{
-//     img: MainBody1,
-//     icon: iphone,
-//     title: "iPhone 14 Series",
-//     text: "Up to 10% off Voucher"
-//     },
-//   {img: MainBody2,
-//     icon: iphone,
-//     title: "iPhone 17 Series",
-//     text: "Up to 15% off Voucher",
-//   },{
-//     img: MainBody1,
-//     icon: iphone,
-//     title: "iPhone 14 Series",
-//     text: "Up to 10% off Voucher"
-//     },
-//   {img: MainBody2,
-//     icon: iphone,
-//     title: "iPhone 17 Series",
-//     text: "Up to 15% off Voucher",
-//   },{
-//     img: MainBody1,
-//     icon: iphone,
-//     title: "iPhone 14 Series",
-//     text: "Up to 10% off Voucher"
-//     }
-//]
 
-function Img({image}){
-    return (<>
-        <img className={styles.img} alt={image[0].altText} src={image[0].imageURL}/>
-    </>)
-}
 export default function MainImg(){
     const [current, setCurrent] = useState(0);
-
     const { productsByTagName} = useFetchProductsByTagName("Best Seller");
-    const [currentProduct, setCurrentProduct] = useState(null);
+    let currentProduct = productsByTagName?.[current];
+
+
     useEffect(() => {
-    if (productsByTagName && productsByTagName.length > 0) {
-      setCurrentProduct(productsByTagName[0]);
-      setCurrent(0); // reset current dot
-    }
-  }, [productsByTagName]);
+        if (!productsByTagName?.length) return;
 
-    console.log(productsByTagName)
-    {if(!productsByTagName) return(<div className={styles.mainDiv}>loading...</div>);} 
+        const interval = setInterval(() => {
+            setCurrent(prev => (prev + 1) % productsByTagName.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [productsByTagName]);
+
+
+    useEffect(() => {
+        if (productsByTagName && productsByTagName.length > 0) {
+            currentProduct = productsByTagName[0];
+        setCurrent(0); // reset current dot
+        }
+    }, [productsByTagName]);
+
+
+    {if(!productsByTagName || productsByTagName.length === 0){ 
+        return(
+            <MainImgSkeleton />
+        );
+    } }
+
     return(
-        <div className={styles.mainDiv}>
-            <div className={styles.vr}>
-                {currentProduct &&
-                <div className={styles.hz}>
-                    <ul className={styles.textContent}>
-                        <ul className={styles.textContentProduct}>
-                        <li className={styles.item} id={styles.titleCont}>
-                            {currentProduct?.description}
-                        </li>
-                        <li className={styles.item}>
-                            <p className={styles.text}>{currentProduct?.productName}</p>
-                        </li>
-                        </ul>
-                        <li className={styles.item}>
-                            <p className={styles.text}>{currentProduct?.productName}</p>
-                        </li>
-                        <Link state={{ currentProduct }} to={`/pdp`}>
-                            <li className={styles.item}>
-                                <a className={styles.shop} href="#">Shop Now</a>
-                                  <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                      <path d="M1.5 8H18M18 8L11 1M18 8L11 15" stroke="#FAFAFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                            </li>
-                        </Link>
-
-                    </ul>
+        <div 
+            className="
+                bg-black text-white font-sans
+                w-[900px] mt-12
+                px-[35px] py-[35px] pl-[50px]
+                sm:w-full sm:p-6
+                flex flex-col "
+        >
+                {currentProduct && (
+                <div
+                    className="
+                        flex flex-col
+                        flex justify-between
+                        h-[400px]
+                        overflow-hidden
+                        sm:flex-row sm:h-auto sm:items-center
+                        "
+                >
+                    {(currentProduct) && <TextContent currentProduct={currentProduct} />}
                     {(currentProduct?.images) && <Img image={currentProduct.images}/>}
 
-                </div>}
+                </div>)}
                 {/* Slider Dots */}
-                <div className={styles.slider}>
+                <div className="flex justify-center gap-3 mt-6">
                 {productsByTagName.map((_, index) => (
-                    <div
-                    key={index}
-                    className={styles.dot}
-                    style={{
-                        backgroundColor: current === index ? "var(--red)" : "var(--white)",
-                        opacity: current === index ? 1 : 0.5,
-                    }}
-                    onClick={() => {
-                        setCurrent(index); 
-                        setCurrentProduct(productsByTagName[index]);
-                    }}
-                    ></div>
+                    <button
+                        key={index}
+                        className={`w-3.5 h-3.5 rounded-full border-2 transition
+                        ${
+                            current === index
+                            ? "bg-red-500 border-red-500 scale-110"
+                            : "bg-white/50 border-white hover:bg-red-500"
+                        }`}
+                        onClick={() => {
+                            setCurrent(index);
+                        }}
+                    />
                 ))}
                 </div>
-            </div>
         </div>
     )}
