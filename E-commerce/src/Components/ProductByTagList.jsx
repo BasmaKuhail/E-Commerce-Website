@@ -16,6 +16,6 @@ export default function useFetchData(tagName) {
       console.log(tagName);
   }, [tagName]);
 
-  console.log(productsByTagName);
+  // console.log(productsByTagName);
   return { productsByTagName, loading, error};
 }
