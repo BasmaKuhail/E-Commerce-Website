@@ -1,33 +1,12 @@
 import Path from "../About/Path";
 import styles from "./Product.module.css"
-
-import product1 from "../../assets/ProductDetails/product1.png"
-import product2 from "../../assets/ProductDetails/product2.png"
-import product3 from "../../assets/ProductDetails/product3.png"
-import product4 from "../../assets/ProductDetails/product4.png"
-import product5 from "../../assets/ProductDetails/product5.png"
-
-import delivery1 from "../../assets/ProductDetails/delivery1.svg"
-import delivery2 from "../../assets/ProductDetails/delivery2.svg"
-
 import BasicRating from "../Card/Stars";
 import { useState } from "react";
 import Card from "../Card/Card";
 import Title from "../Title";
 import { Link, useLocation } from "react-router-dom";
-import useFetchData from "../ProductList";
+import useFetchProductByCategoryId from "../ProductsByCategory";
 
-const sizes= ["XS", "S", "M", "L", "XL"]
-
-const delivery = [
-    {icon: delivery1,
-        title: "Free Delivery",
-        description: "Enter your postal code for Delivery Availability"
-    },{icon: delivery2,
-        title: "Return Delivery",
-        description: "Free 30 Days Delivery Returns. Details"
-    }
-]
 
 export default function ProductDetails(){
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,10 +18,9 @@ export default function ProductDetails(){
     const location = useLocation();
     const { product } = location.state || {}; //get product from state
     {console.log(product)}
-    let { data: products} = useFetchData();
+    let { products} = useFetchProductByCategoryId(product.category.id);
     
     //related items
-    products = products.filter((prdct) => prdct.category == product.category)
     const [quantity, setQuantity] = useState(product.quantity || 1);
 
     function incraseHandler(){
@@ -112,9 +90,9 @@ export default function ProductDetails(){
                     {/* {product.colors.map((color => <input type="radio" styles= {{accentColor: `${color}`}} className={styles.color}/>))} */}
                 </li>
 
-                <li className={styles.item}>Sizes: 
+                {/* <li className={styles.item}>Sizes: 
                     {sizes.map((size => <button className={styles.size}>{size}</button>))} 
-                </li>
+                </li> */}
                 <li className={styles.item} id={styles.specialItem}>
                     <QuantityHandler/>
                     <button className={styles.btn}>Buy Now</button>
@@ -126,7 +104,7 @@ export default function ProductDetails(){
                 </li>
             </ul>
             
-            <div className={styles.delivery}>
+            {/* <div className={styles.delivery}>
                 {delivery.map((item => <div className={styles.dliv}>
                     <img src={item.icon}/>
                     <div className={styles.text}>
@@ -134,7 +112,7 @@ export default function ProductDetails(){
                         <p className={styles.desc}>{item.description}</p>
                     </div>
                 </div>))}
-            </div>
+            </div> */}
         </div>
     </div>
     <Title title="Related Item"/>

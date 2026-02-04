@@ -1,4 +1,3 @@
-import styles from "./MainImg.module.css"
 import { useState, useEffect } from "react";
 import { Line } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
@@ -130,7 +129,7 @@ export default function MainImg(){
                                 hover:text-red-500 transition
                                 "
                         >
-                            <li className={styles.item}>
+                            <li className="flex items-center gap-2">
                                 <span>Shop Now</span>
                                 <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1.5 8H18M18 8L11 1M18 8L11 15" stroke="#FAFAFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
